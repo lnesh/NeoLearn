@@ -1,2 +1,2 @@
 # NeoLearn
-eLearning platform 
+An educational eLearning platform for both students and educators
