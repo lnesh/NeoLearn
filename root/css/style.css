@@ -1,11 +1,29 @@
 *{
     font-family: 'Jura', sans-serif;
+    margin: 0;
 }
 
 body {
     
-    background-color: #5A1F8D;
+    background-color: #5A2D89;
+
+
 }
+
+.banner-img{
+    background-image: url("../media/background_png2.png");
+    width: fit-content;
+    height: 100vh;
+    background-position:left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.banner{
+    
+}
+
 
 .header {
     background-color: #333;
@@ -13,6 +31,3 @@ body {
     padding: 10px;
 }
 
-.index-banner{
-    width: 530px;
-}
