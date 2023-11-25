@@ -20,8 +20,15 @@ body {
     position: relative;
 }
 
-.banner{
-    
+
+.nav-link{
+
+    color: white;
+}
+
+.btn1{
+    border-radius: 50px;
+    background: #936FB9;
 }
 
 
