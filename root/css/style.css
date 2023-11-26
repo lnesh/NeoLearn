@@ -1,0 +1,18 @@
+*{
+    font-family: 'Jura', sans-serif;
+}
+
+body {
+    
+    background-color: #5A1F8D;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+.index-banner{
+    width: 530px;
+}
