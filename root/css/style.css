@@ -30,15 +30,18 @@ body {
   }
 }
 
-.banner-img{
-    background-image: url("/root/media/background_png2.png");
-    width: fit-content;
-    height: 100vh;
-    background-position:left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+#btn2{
+    color: #5A2D89;
+    background-color: rgb(179, 173, 80);
+    font-weight: 700;
 }
+
+#btn3{
+    color: aliceblue;
+    background-color: #9562cd;
+    font-weight: 700;
+}
+
 
 
 .nav-link{
@@ -58,3 +61,12 @@ body {
     padding: 10px;
 }
 
+.banner-img{
+    background-image: url("/root/media/background_png2.png");
+    width: fit-content;
+    height: 100vh;
+    background-position:left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
