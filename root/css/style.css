@@ -32,6 +32,7 @@ body {
   border-radius: 15px;
   width: 190px;
   height: 50px;
+  margin-left: 4%;
 }
 
 #btn3 {
@@ -45,19 +46,32 @@ body {
 
 .btn-a {
   border: none;
-  background: #B3AD50;
+  background: #936fb9;
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
 
-
 .btn-a:hover {
-  background: linear-gradient(0deg,rgb(226, 226, 82),#B3AD50);
-  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-  inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-  0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-  0px 0px 180px 0px #cca90e;
-  transform: translateY(-2px);
+  background: linear-gradient(0deg, #5a2d89, #9562cd);
+  box-shadow: inset 0px 0.5px 0px 0px rgba(251, 244, 244, 0.779),
+    inset 0px -4px 0px 0px rgba(47, 46, 46, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 150px 0px #cca90e;
+  transform: translateY(-5px);
+}
+
+.btn-b {
+  border: none;
+  background: #b3ad50;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.btn-b:hover {
+  background: linear-gradient(0deg, rgb(226, 226, 82), #b3ad50);
+  box-shadow: inset 0px 0.5px 0px 0px rgba(239, 235, 235, 0.4),
+    inset 0px -4px 0px 0px rgba(103, 100, 100, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #cca90e;
+  transform: translateY(-5px);
 }
 
 .p1 {
@@ -73,13 +87,15 @@ body {
 }
 
 @media screen and (max-width: 425px) {
-  .p1, .p2 {
+  .p1,
+  .p2 {
     font-size: 15px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .p1, .p2 {
+  .p1,
+  .p2 {
     font-size: 20px;
   }
 }
