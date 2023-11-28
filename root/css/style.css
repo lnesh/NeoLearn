@@ -1,24 +1,20 @@
-*{
-    font-family: 'Jura', sans-serif;
-    margin: 0;
+* {
+  font-family: "Jura", sans-serif;
+  margin: 0;
 }
 
 body {
-    
-    background-color: #5A2D89;
-    
-
+  background-color: #5a2d89;
 }
 
-.bg-img{
-    height: 110vh;
+.bg-img {
+  height: 110vh;
 }
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   [class*="bg-img"] {
     height: 90vh;
-    
   }
 }
 
@@ -26,48 +22,70 @@ body {
   /* For mobile phones: */
   [class*="bg-img"] {
     width: 0;
-    
   }
 }
 
-#btn2{
-    color: #5A2D89;
-    background-color: rgb(179, 173, 80);
-    font-weight: 700;
+#btn2 {
+  color: #5a2d89;
+  background-color: rgb(179, 173, 80);
+  font-weight: 700;
 }
 
-#btn3{
-    color: aliceblue;
-    background-color: #9562cd;
-    font-weight: 700;
+#btn3 {
+  color: aliceblue;
+  background-color: #9562cd;
+  font-weight: 700;
 }
 
-
-
-.nav-link{
-
-    color: white;
+.p1 {
+  color: #5a2d89;
+  font-weight: 500;
+  font-family: "Epilogue", sans-serif;
 }
 
-.btn1{
-    border-radius: 50px;
-    background: #936FB9;
+.p2 {
+  color: #d6cae2;
+  font-weight: 500;
+  font-family: "Epilogue", sans-serif;
 }
 
+@media screen and (max-width: 425px) {
+  .p1, .p2 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .p1, .p2 {
+    font-size: 20px;
+  }
+}
+
+.bi-check-lg {
+  margin-right: 2%;
+}
+
+.nav-link {
+  color: white;
+}
+
+.btn1 {
+  border-radius: 50px;
+  background: #936fb9;
+}
 
 .header {
-    background-color: #333;
-    color: white;
-    padding: 10px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
 }
 
-.banner-img{
-    background-image: url("/root/media/background_png2.png");
-    width: fit-content;
-    height: 100vh;
-    background-position:left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+.banner-img {
+  background-image: url("/root/media/background_png2.png");
+  width: fit-content;
+  height: 100vh;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
-
