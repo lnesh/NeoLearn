@@ -29,12 +29,35 @@ body {
   color: #5a2d89;
   background-color: rgb(179, 173, 80);
   font-weight: 700;
+  border-radius: 15px;
+  width: 190px;
+  height: 50px;
 }
 
 #btn3 {
   color: aliceblue;
   background-color: #9562cd;
   font-weight: 700;
+  border-radius: 15px;
+  width: 190px;
+  height: 50px;
+}
+
+.btn-a {
+  border: none;
+  background: #B3AD50;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+
+.btn-a:hover {
+  background: linear-gradient(0deg,rgb(226, 226, 82),#B3AD50);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+  inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+  0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+  0px 0px 180px 0px #cca90e;
+  transform: translateY(-2px);
 }
 
 .p1 {
