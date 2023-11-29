@@ -1,18 +1,170 @@
-*{
-    font-family: 'Jura', sans-serif;
+* {
+  font-family: "Jura", sans-serif;
+  margin: 0;
 }
 
 body {
-    
-    background-color: #5A1F8D;
+  background-color: #5a2d89;
+}
+
+.bg-img {
+  height: 110vh;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="bg-img"] {
+    height: 90vh;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  /* For mobile phones: */
+  [class*="bg-img"] {
+    width: 0;
+  }
+}
+
+#btn2 {
+  color: #5a2d89;
+  background-color: rgb(179, 173, 80);
+  font-weight: 700;
+  border-radius: 15px;
+  width: 190px;
+  height: 50px;
+  margin-left: 4%;
+}
+
+#btn3 {
+  color: aliceblue;
+  background-color: #9562cd;
+  font-weight: 700;
+  border-radius: 15px;
+  width: 190px;
+  height: 50px;
+}
+
+.btn-a {
+  border: none;
+  background: #936fb9;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.btn-a:hover {
+  background: linear-gradient(0deg, #5a2d89, #9562cd);
+  box-shadow: inset 0px 0.5px 0px 0px rgba(251, 244, 244, 0.779),
+    inset 0px -4px 0px 0px rgba(47, 46, 46, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 150px 0px #cca90e;
+  transform: translateY(-5px);
+}
+
+.btn-b {
+  border: none;
+  background: #b3ad50;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.btn-b:hover {
+  background: linear-gradient(0deg, rgb(226, 226, 82), #b3ad50);
+  box-shadow: inset 0px 0.5px 0px 0px rgba(239, 235, 235, 0.4),
+    inset 0px -4px 0px 0px rgba(103, 100, 100, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #cca90e;
+  transform: translateY(-5px);
+}
+
+.p1 {
+  color: #5a2d89;
+  font-weight: 500;
+  font-family: "Epilogue", sans-serif;
+}
+
+.p2 {
+  color: #d6cae2;
+  font-weight: 500;
+  font-family: "Epilogue", sans-serif;
+}
+
+@media screen and (max-width: 425px) {
+  .p1,
+  .p2 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .p1,
+  .p2 {
+    font-size: 20px;
+  }
+}
+
+.bi-check-lg {
+  margin-right: 2%;
+}
+
+.continue-btn{
+  border-radius: 25px; 
+  font-weight: 600;
+}
+
+.continue-btn:hover {
+  background: #532d7b;
+  color:white;
+  border: none;
+}
+
+.continue-btn > svg {
+  width: 34px;
+  margin-left: 10px;
+  transition: transform .3s ease-in-out;
+}
+
+.continue-btn:hover svg {
+  transform: translateX(3px);
+  stroke: white;
+}
+
+.continue-btn:active {
+  transform: scale(0.95);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.nav-link {
+  color: white;
+}
+
+.btn1 {
+  border-radius: 50px;
+  background: #936fb9;
 }
 
 .header {
-    background-color: #333;
-    color: white;
-    padding: 10px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
 }
 
-.index-banner{
-    width: 530px;
+.banner-img {
+  background-image: url("/root/media/background_png2.png");
+  width: fit-content;
+  height: 100vh;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
