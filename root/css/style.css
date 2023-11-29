@@ -104,6 +104,46 @@ body {
   margin-right: 2%;
 }
 
+.continue-btn{
+  border-radius: 25px; 
+  font-weight: 600;
+}
+
+.continue-btn:hover {
+  background: #532d7b;
+  color:white;
+  border: none;
+}
+
+.continue-btn > svg {
+  width: 34px;
+  margin-left: 10px;
+  transition: transform .3s ease-in-out;
+}
+
+.continue-btn:hover svg {
+  transform: translateX(3px);
+  stroke: white;
+}
+
+.continue-btn:active {
+  transform: scale(0.95);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .nav-link {
   color: white;
 }
