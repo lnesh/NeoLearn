@@ -14,5 +14,17 @@ body {
   color: #492a6c;
   font-size: 15px;
   line-height: normal;
+}
+
+
+.label {
+  font-family: "Epilogue", sans-serif;
   
 }
+
+.card-item {
+  background: #492a6c;
+  color: #dabafc;
+}
+
+
