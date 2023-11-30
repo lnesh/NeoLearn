@@ -86,11 +86,11 @@
             font-size: 14px;
         }
         .profile-container {
-    display: flex;
-    align-items: center;
-    justify-content: start; /* Align items to the start of the container */
-    padding: 20px;
-}
+            display: flex;
+            align-items: center;
+            justify-content: start; /* Align items to the start of the container */
+            padding: 20px;
+        }
 
     .profile-photo {
         width: 50px;
@@ -116,7 +116,15 @@
     .enroll-button {
         margin: 0 20px; /* Add margin to both sides of the button */
     }
-
+    .add-button {
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: transparent; /* Set the background to transparent */
+            border: 1px transparent; /* Optional: add a border */
+            cursor: pointer;
+            border-radius: 4px;
+    }
 .save-course-text {
     color: #E08231;
     cursor: pointer;
@@ -153,6 +161,10 @@
                 <li>Compose HTML5 code that can create images and links.</li>
                 <li>Be aware of what an editor is and how to use one.</li>
             </ul>
+            <button class="add-button">
+                <span class="icon">+</span>
+                <span class="button-text" style="color: #b7b7b7;">Add learning feature</span>
+            </button>
             <br><br>
             <h2>Skills you will gain:</h2>
             <div class="tags">
