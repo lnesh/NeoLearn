@@ -12,18 +12,22 @@
             background-color: #f5f5f5;
         }
         .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack children vertically */
             max-width: 800px;
             margin: 50px auto;
             background: #fff;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
         }
         .header {
+            border-radius: 0 45px 45px 45px; /* top-left, top-right, bottom-right, bottom-left */
             background: #491774;
             color: #fff;
             padding: 20px;
             text-align: center;
-            border-radius: 8px 8px 0 0;
         }
         .header h1 {
             margin: 0;
