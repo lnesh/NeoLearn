@@ -5,30 +5,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jura:wght@400;700&display=swap">
 
     <style>
-        img {
+        body {
+            font-family: 'Jura', sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 25vh;
+            margin: 0;
+        }
+
+        .textbox {
+            background-color: #e1e1e1;
+            border-radius: 10px;
+            padding: 10px;
+            width: 500px;
+            text-align: left;
+            margin: 0 auto;
+            margin-bottom: 1px;
+            margin-top: 1px;
+            position: relative;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .edit-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e1e1e1;
+            cursor: pointer;
+            color: rgb(152, 0, 227);
+        }
+
+        .profile-pic-container {
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            align-items: center;
+        }
+
+        .profile-pic {
             border-radius: 50%;
+            border: 3px solid rgb(152, 0, 227);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            margin-top: 1px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-family: 'Jura', sans-serif;
+            color: rgb(152, 0, 227);
+            margin-top: 1px;
         }
     </style>
 
 </head>
 
 <body>
-    <div style="text-align: center;">
-        <img src="./media/NeoLearnLogo.png" alt="logo" class="center" width="150" height="66">
-    </div>
-    <h2> <img src="./media/arrowicon.png" alt="backarrow" width="40" height="40"> Profile</h2>
 
     <div style="text-align: center;">
-        <img src="./media/profilepic.jpg" alt="pfp" class="center" width="100" height="100">
+        <img src="./media/NeoLearnLogo.png" alt="logo" class="center" width="200" height="90">
     </div>
 
-    <p>Full name</p>
+    <h1> <img src="./media/arrowicon.png" alt="backarrow" width="60" height="60"> Profile</h1>
 
-    <p>E-mail address</p>
+    <div class="profile-pic-container">
+        <img src="./media/profilepic.jpg" alt="pfp" class="profile-pic" width="100" height="100">
+        <button class="edit-button" onclick="editProfile('profilepic')">Edit</button>
+    </div>
 
-    <p>Full name</p>
+    <div style="text-align: center; color: rgb(152, 0, 227);">
+        <p>AndyG</p>
+    </div>
+
+    <div class="container">
+        <div>
+            <label for="fullname" class="label">Full name</label>
+            <div id="fullname" class="textbox">
+                Andrew G. Mate
+                <button class="edit-button" onclick="editProfile('fullname')">Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+            <label for="email" class="label">E-mail address</label>
+            <div id="email" class="textbox">
+                andrew-gmate@dumpmail.eu
+                <button class="edit-button" onclick="editProfile('email')">Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+            <label for="username" class="label">Username</label>
+            <div id="username" class="textbox">
+                AndyG
+                <button class="edit-button" onclick="editProfile('username')">Edit</button>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 
