@@ -77,51 +77,55 @@
 
 <body>
 
-    <div style="text-align: center;">
+
+    <div style="display: flex; justify-content: center;">
         <img src="./media/NeoLearnLogo.png" alt="logo" class="center" width="200" height="90">
     </div>
 
-    <h1> <img src="./media/arrowicon.png" alt="backarrow" width="60" height="60"> Profile</h1>
+    <div style="display: flex;">
+        <!-- <img src="./media/arrowicon.png" alt="backarrow" width="60" height="60"> -->
+        <h1 style="padding: 50px;"> Profile</h1>
+    </div>
 
-    <div class="profile-pic-container">
+    <div class="profile-pic-container" style="display: flex; justify-content: center;">
         <img src="./media/profilepic.jpg" alt="pfp" class="profile-pic" width="100" height="100">
         <button class="edit-button" onclick="editProfile('profilepic')">Edit</button>
     </div>
 
-    <div style="text-align: center; color: rgb(152, 0, 227);">
-        <p>AndyG</p>
-    </div>
+    <!-- <div style="text-align: center; color: rgb(152, 0, 227);">
+                <p>AndyG</p>
+            </div> -->
+
+
 
     <div class="container">
-        <div>
-            <label for="fullname" class="label">Full name</label>
-            <div id="fullname" class="textbox">
-                Andrew G. Mate
-                <button class="edit-button" onclick="editProfile('fullname')">Edit</button>
+        <div class="row">
+            <div>
+                <label for="fullname" class="label">Full name</label>
+                <div id="fullname" class="textbox">
+                    Andrew G. Mate
+                    <button class="edit-button" onclick="editProfile('fullname')">Edit</button>
+                </div>
+            </div>
+
+            <div>
+                <label for="email" class="label">E-mail address</label>
+                <div id="email" class="textbox">
+                    andrew-gmate@dumpmail.eu
+                    <button class="edit-button" onclick="editProfile('email')">Edit</button>
+                </div>
+            </div>
+
+            <div>
+                <label for="username" class="label">Username</label>
+                <div id="username" class="textbox">
+                    AndyG
+                    <button class="edit-button" onclick="editProfile('username')">Edit</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div>
-            <label for="email" class="label">E-mail address</label>
-            <div id="email" class="textbox">
-                andrew-gmate@dumpmail.eu
-                <button class="edit-button" onclick="editProfile('email')">Edit</button>
-            </div>
-        </div>
     </div>
-
-    <div class="container">
-        <div>
-            <label for="username" class="label">Username</label>
-            <div id="username" class="textbox">
-                AndyG
-                <button class="edit-button" onclick="editProfile('username')">Edit</button>
-            </div>
-        </div>
-    </div>
-
 
 </body>
 
