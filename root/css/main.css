@@ -24,7 +24,15 @@ body {
 
 .card-item {
   background: #492a6c;
-  color: #dabafc;
+  color: #CDA3FB;
+  border-radius: 50px;
+}
+
+.card-img{
+  padding-top: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 50px;
 }
 
 
