@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit course</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,6 +14,7 @@
             padding: 0;
             background-color: #f5f5f5;
         }
+
         .container {
             max-width: 800px;
             margin: 50px auto;
@@ -18,16 +22,20 @@
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .header {
-            border-radius: 0 45px 45px 45px; /* top-left, top-right, bottom-right, bottom-left */
+            border-radius: 0 45px 45px 45px;
+            /* top-left, top-right, bottom-right, bottom-left */
             background: #491774;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
+
         .header h1 {
             margin: 0;
         }
+
         .header p {
             text-align: left;
             color: #cea4fb;
@@ -36,21 +44,28 @@
             padding-right: 40px;
             padding-bottom: 40px;
         }
+
         .content {
             padding: 20px;
             text-align: left;
         }
+
         .content h2 {
             color: #4f1f84;
         }
+
         .content p {
             line-height: 1.6;
         }
-        .enroll-button, .save-course-button {
+
+        .enroll-button,
+        .save-course-button {
             border-radius: 12px;
             padding: 10px;
-            width: 220px; /* Width */
-            height: 74px; /* Height */
+            width: 220px;
+            /* Width */
+            height: 74px;
+            /* Height */
             text-align: center;
             background: #e08231;
             color: #000000;
@@ -59,23 +74,28 @@
             font-size: 30px;
             margin-top: 20px;
         }
+
         .skills {
             margin: 20px 0;
             list-style: none;
             padding: 0;
         }
+
         .skills li {
             padding: 5px 0;
         }
+
         .skills li::before {
             content: '✔';
             margin-right: 10px;
             color: #4caf50;
         }
+
         .tags {
             text-align: left;
             padding: 10px 0;
         }
+
         .tag {
             display: inline-block;
             background: #CBC3E3;
@@ -85,64 +105,76 @@
             border-radius: 20px;
             font-size: 14px;
         }
+
         .profile-container {
             display: flex;
             align-items: center;
-            justify-content: start; /* Align items to the start of the container */
+            justify-content: start;
+            /* Align items to the start of the container */
             padding: 20px;
         }
 
-    .profile-photo {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: 2px solid #491774;
-    }
+        .profile-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #491774;
+        }
 
-    .instructor-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-right: 20px; /* Add some space between instructor info and the button */
-    }
+        .instructor-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-right: 20px;
+            /* Add some space between instructor info and the button */
+        }
 
-    .instructor-info p,
-    .instructor-info p.name {
-        margin: 0;
-        padding: 0;
-        line-height: 1;
-    }
+        .instructor-info p,
+        .instructor-info p.name {
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+        }
 
-    .enroll-button {
-        margin: 0 20px; /* Add margin to both sides of the button */
-    }
-    .add-button {
+        .enroll-button {
+            margin: 0 20px;
+            /* Add margin to both sides of the button */
+        }
+
+        .add-button {
             display: flex;
             align-items: center;
             padding: 5px 10px;
-            background-color: transparent; /* Set the background to transparent */
-            border: 1px transparent; /* Optional: add a border */
+            background-color: transparent;
+            /* Set the background to transparent */
+            border: 1px transparent;
+            /* Optional: add a border */
             cursor: pointer;
             border-radius: 4px;
-    }
-.save-course-text {
-    color: #E08231;
-    cursor: pointer;
-    font-size: 18px;
-    text-align: right;
-    margin-left: 20px; /* Add margin to the left side of the save course text */
-    margin-right: 0; /* Remove margin from the right side */
-    white-space: nowrap; /* Prevent wrapping of the save course text */
-}
+        }
 
+        .save-course-text {
+            color: #E08231;
+            cursor: pointer;
+            font-size: 18px;
+            text-align: right;
+            margin-left: 20px;
+            /* Add margin to the left side of the save course text */
+            margin-right: 0;
+            /* Remove margin from the right side */
+            white-space: nowrap;
+            /* Prevent wrapping of the save course text */
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <h1>HTML5: an introduction</h1>
-            <p>Start your path to a career in HTML5. This program, you'll learn html5 basics in less than two weeks. No degree or experience is required.</p>
-            
+            <p>Start your path to a career in HTML5. This program, you'll learn html5 basics in less than two weeks. No
+                degree or experience is required.</p>
+
             <div class="profile-container">
                 <img src="media/professor.jpg" alt="Instructor's Photo" class="profile-photo">
                 <div class="instructor-info">
@@ -152,7 +184,7 @@
                 <button class="enroll-button">Enroll</button>
                 <div class="save-course-text">Save<br>Course</div>
             </div>
-            
+
         </div>
         <div class="content">
             <h2>What you will learn:</h2>
@@ -178,8 +210,9 @@
         </div>
     </div>
     <!-- Code injected by live-server -->
-    <script>
-        // ... existing script ...
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
