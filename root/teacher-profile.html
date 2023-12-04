@@ -5,12 +5,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jura:wght@400;700&display=swap">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <style>
+        body {
+            font-family: 'Jura', sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 25vh;
+            margin: 0;
+        }
+
+        .textbox-container {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .textbox {
+            background-color: #e1e1e1;
+            border-radius: 10px;
+            padding: 10px;
+            width: 500px;
+            text-align: left;
+            position: relative;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .edit-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e1e1e1;
+            cursor: pointer;
+            color: rgb(152, 0, 227);
+        }
+
+        .edit-button-pfp {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e1e1e1;
+            cursor: pointer;
+            color: rgb(152, 0, 227);
+            margin-top: -60px;
+        }
+
+        .profile-pic-container {
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            align-items: center;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            border: 3px solid rgb(152, 0, 227);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            margin-top: -60px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-family: 'Jura', sans-serif;
+            color: rgb(152, 0, 227);
+            margin-top: 1px;
+        }
+    </style>
+
 </head>
 
 <body>
 
+
+    <div style="display: flex; justify-content: center;">
+        <img src="./media/NeoLearnLogo.png" alt="logo" class="center" width="200" height="90">
+    </div>
+
+    <div style="display: flex;">
+        <!-- <img src="./media/arrowicon.png" alt="backarrow" width="60" height="60"> -->
+        <h1 style="padding: 50px;"> Profile</h1>
+    </div>
+
+    <div class="profile-pic-container" style="display: flex; justify-content: center; align-items: center;">
+        <div style="position: relative;">
+            <img src="./media/profilepic.jpg" alt="pfp" class="profile-pic" width="100" height="100">
+            <button class="edit-button-pfp" onclick="editProfile('profilepic')">Edit</button>
+        </div>
+    </div>
+    
+
+    <!-- <div style="text-align: center; color: rgb(152, 0, 227);">
+                <p>AndyG</p>
+            </div> -->
+
+
+
+    <div class="container">
+        <div class="row">
+            <div>
+                <label for="fullname" class="label">Full name</label>
+                <div id="fullname" class="textbox">
+                    Martin Furry
+                    <button class="edit-button" onclick="editProfile('fullname')">Edit</button>
+                </div>
+            </div>
+
+            <div>
+                <label for="email" class="label">E-mail address</label>
+                <div id="email" class="textbox">
+                    martin-furry@dumpmail.eu
+                    <button class="edit-button" onclick="editProfile('email')">Edit</button>
+                </div>
+            </div>
+
+            <div>
+                <label for="username" class="label">Username</label>
+                <div id="username" class="textbox">
+                    martin-furry
+                    <button class="edit-button" onclick="editProfile('username')">Edit</button>
+                </div>
+            </div>
+
+            <div>
+                <label for="education" class="label">Education</label>
+                <div id="education" class="textbox">
+                    Bachelor’s 
+                    <button class="edit-button" onclick="editProfile('education')">Edit</button>
+                </div>
+            </div>
+
+            <div>
+                <label for="studiestittle" class="label">Studies title</label>
+                <div id="studiestittle" class="textbox">
+                    Applied Informatics
+                    <button class="edit-button" onclick="editProfile('studiestittle')">Edit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
