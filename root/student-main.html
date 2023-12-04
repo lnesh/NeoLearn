@@ -41,16 +41,18 @@
 
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/carousel.css">
 </head>
 
 <body>
+
 
 
     <nav class="navbar sticky-top" style="background-color:#492a6c; border-radius: 50px; margin: 20px;">
         <div class="container-fluid">
             <img src="./media/NeoLearnLogo.png" alt="logo" width="200">
             <form style="display: flex; gap: 18px;">
-                <input class="form-control" style="width: 500px; border-radius: 25px; border: 1px solid #492a6c; "
+                <input class="form-control" style="min-width: 300px; border-radius: 25px; border: 1px solid #492a6c; "
                     type="search" placeholder="Search" aria-label="Search">
                 <button class="btn"
                     style="width: 100px; background-color: #492a6c; color: aliceblue; border-radius: 25px;"
@@ -163,7 +165,7 @@
 
 
 
-        <div class="col align-items-start" style="margin-top: 3%; display: flex; gap: 10px; ">
+        <div class=" col align-items-start" style="margin-top: 3%; display: flex; gap: 10px; ">
 
 
             <button class="btn tag">Web Development</button>
@@ -175,9 +177,10 @@
             <button class="btn tag">Web Development</button>
             <button class="btn tag">Javascript</button>
             <button class="btn tag">HTML</button>
-            
 
-            <a href="" style="text-decoration: none; color: #684689; padding-top: 2px; font-weight: 600;">See more categories > </a>
+
+            <a href="" style="text-decoration: none; color: #684689; padding-top: 2px; font-weight: 600;">See more
+                categories > </a>
 
         </div>
     </div>
@@ -185,103 +188,147 @@
     <!-- Cards -->
 
     <!-- My courses -->
-    <div class="container" id="courses"  style="margin-top: 3%; display: flex;">
+    <div id="container">
+        
+        <div id="slider-container">
+            <h2 class="label" style="padding: 10px;">Saved for later</h2>
+            <span onclick="slideRight()" class="btn"></span>
+            <div id="slider">
 
-        <div class="row" >
-            <h2 class="label" style="padding: 10px;">My courses</h2>
-            <div class="col">
-                <div class="card card-item" style="width: 18rem;">
-                    <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
-                        <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
-                        <div style="display: flex; justify-content: end;"><a href="#"
-                                style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                <div class="slide">
+                    <div class="card card-item" style="width: 18rem;">
+                        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;"><a href="#"
+                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col">
-                <div class="card card-item" style="width: 18rem;">
-                    <img src="./media/html-system-websites-concept.jpg" class="card-img-top card-img" alt="...">
-                    <div class="card-body ">
-                        <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
-                        <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
-                        <div style="display: flex; justify-content: end;"><a href="#"
-                                style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                <div class="slide">
+                    <div class="card card-item" style="width: 18rem;">
+                        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;"><a href="#"
+                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col">
-                <div class="card card-item" style="width: 18rem;">
-                    <img src="./media/html-system-websites-concept.jpg" class="card-img-top card-img" alt="...">
-                    <div class="card-body ">
-                        <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
-                        <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
-                        <div style="display: flex; justify-content: end;"><a href="#"
-                                style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                <div class="slide">
+                    <div class="card card-item" style="width: 18rem;">
+                        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;"><a href="#"
+                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                        </div>
                     </div>
                 </div>
+                <div class="slide">
+                    <div class="card card-item" style="width: 18rem;">
+                        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;"><a href="#"
+                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="card card-item" style="width: 18rem;">
+                        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;"><a href="#"
+                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-
-
-            <button class="col-2 btn btn-primary" style="width: 150px; height: 50px; align-self: center;">View
-                all</button>
+            <span onclick="slideLeft()" class="btn"></span>
         </div>
     </div>
 
+
+
     <!-- Instructors -->
-    <div class="container" id="instructors" style="margin-top: 3%; display: flex;">
-
-        <div class="row">
-            <h2 class="label" style="padding: 10px;">Instructors I follow</h2>
-            <div class="col">
-                <div class="card card-item" style="width: 18rem;">
-                    <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
-                        <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
-                        <div style="display: flex; justify-content: end;"><a href="#"
-                                style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+    <div id="container">
+        <h2></h2>
+        <div id="slider-container">
+            <span onclick="slideRight()" class="btn"> </span>
+            <div id="slider">
+                <div class="slide">
+                    <div class="card card-item" style="width: 18rem;">
+                        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;"><a href="#"
+                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col">
-                <div class="card card-item" style="width: 18rem;">
-                    <img src="./media/html-system-websites-concept.jpg" class="card-img-top card-img" alt="...">
-                    <div class="card-body ">
-                        <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
-                        <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
-                        <div style="display: flex; justify-content: end;"><a href="#"
-                                style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                <div class="slide">
+                    <div class="card card-item" style="width: 18rem;">
+                        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;"><a href="#"
+                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col">
-                <div class="card card-item" style="width: 18rem;">
-                    <img src="./media/html-system-websites-concept.jpg" class="card-img-top card-img" alt="...">
-                    <div class="card-body ">
-                        <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
-                        <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
-                        <div style="display: flex; justify-content: end;"><a href="#"
-                                style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                <div class="slide">
+                    <div class="card card-item" style="width: 18rem;">
+                        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;"><a href="#"
+                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                        </div>
                     </div>
                 </div>
+                <div class="slide">
+                    <div class="card card-item" style="width: 18rem;">
+                        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;"><a href="#"
+                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="card card-item" style="width: 18rem;">
+                        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;"><a href="#"
+                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-
-
-            <button class="col-2 btn btn-primary" style="width: 150px; height: 50px; align-self: center;">View
-                all</button>
+            <span onclick="slideLeft()" class="btn"></span>
         </div>
     </div>
 
 
     <!-- Saved for later -->
     <div class="container" id="saved" style="margin-top: 3%; display: flex;">
-    
+
         <div class="row">
             <h2 class="label" style="padding: 10px;">Saved for later</h2>
             <div class="col">
@@ -295,7 +342,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="col">
                 <div class="card card-item" style="width: 18rem;">
                     <img src="./media/html-system-websites-concept.jpg" class="card-img-top card-img" alt="...">
@@ -307,7 +354,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="col">
                 <div class="card card-item" style="width: 18rem;">
                     <img src="./media/html-system-websites-concept.jpg" class="card-img-top card-img" alt="...">
@@ -319,8 +366,8 @@
                     </div>
                 </div>
             </div>
-    
-    
+
+
             <button class="col-2 btn btn-primary" style="width: 150px; height: 50px; align-self: center;">View
                 all</button>
         </div>
@@ -336,6 +383,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <script src="./scripts/carousel.js"></script>
 </body>
 
 </html>
