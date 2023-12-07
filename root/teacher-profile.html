@@ -44,7 +44,7 @@
             font-weight: bold;
         }
 
-        .edit-button {
+        .btn {
             position: absolute;
             top: 5px;
             right: 5px;
@@ -79,7 +79,7 @@
 
         .profile-pic {
             border-radius: 50%;
-            border: 3px solid rgb(152, 0, 227);
+            border: 3px solid rgb(130, 21, 185);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             margin-top: -60px;
             display: inline-block;
@@ -87,8 +87,16 @@
 
         h1 {
             font-family: 'Jura', sans-serif;
-            color: rgb(152, 0, 227);
+            color: rgb(130, 21, 185);
             margin-top: 1px;
+        }
+
+        .form-look {
+            color: #9b9b9b;
+            padding: -20px;
+            border-radius: 20px;
+            width: 500px;
+            margin: 0 auto;
         }
     </style>
 
@@ -112,7 +120,7 @@
             <button class="edit-button-pfp" onclick="editProfile('profilepic')">Edit</button>
         </div>
     </div>
-    
+
 
     <!-- <div style="text-align: center; color: rgb(152, 0, 227);">
                 <p>AndyG</p>
@@ -120,48 +128,52 @@
 
 
 
-    <div class="container">
-        <div class="row">
-            <div>
-                <label for="fullname" class="label">Full name</label>
-                <div id="fullname" class="textbox">
-                    Martin Furry
-                    <button class="edit-button" onclick="editProfile('fullname')">Edit</button>
-                </div>
-            </div>
-
-            <div>
-                <label for="email" class="label">E-mail address</label>
-                <div id="email" class="textbox">
-                    martin-furry@dumpmail.eu
-                    <button class="edit-button" onclick="editProfile('email')">Edit</button>
-                </div>
-            </div>
-
-            <div>
-                <label for="username" class="label">Username</label>
-                <div id="username" class="textbox">
-                    martin-furry
-                    <button class="edit-button" onclick="editProfile('username')">Edit</button>
-                </div>
-            </div>
-
-            <div>
-                <label for="education" class="label">Education</label>
-                <div id="education" class="textbox">
-                    Bachelor’s 
-                    <button class="edit-button" onclick="editProfile('education')">Edit</button>
-                </div>
-            </div>
-
-            <div>
-                <label for="studiestittle" class="label">Studies title</label>
-                <div id="studiestittle" class="textbox">
-                    Applied Informatics
-                    <button class="edit-button" onclick="editProfile('studiestittle')">Edit</button>
-                </div>
-            </div>
+    <div class="form-look">
+        <div class="form">
+            <label for="FormControl" class="form-label">Full name</label>
+            <input class="form-control" type="text" value="Andrew G. Mate" aria-label="Disabled input example" disabled
+                readonly>
+            <button type="button" class="btn">Edit</button>
         </div>
+    </div>
+
+    <div class="form-look">
+        <div class="form">
+            <label for="FormControl" class="form-label">E-mail address</label>
+            <input class="form-control" type="text" value="andrew-gmate@dumpmail.eu" aria-label="Disabled input example"
+                disabled readonly>
+            <button type="button" class="btn">Edit</button>
+        </div>
+    </div>
+
+    <div class="form-look">
+        <div class="form">
+            <label for="FormControl" class="form-label">Username</label>
+            <input class="form-control" type="text" value="Andy G" aria-label="Disabled input example" disabled
+                readonly>
+            <button type="button" class="btn">Edit</button>
+        </div>
+    </div>
+
+    <div class="form-look">
+        <div class="form">
+            <label for="FormControl" class="form-label">Education</label>
+            <input class="form-control" type="text" value="Bachelor’s" aria-label="Disabled input example" disabled
+                readonly>
+            <button type="button" class="btn">Edit</button>
+        </div>
+    </div>
+
+    <div class="form-look">
+        <div class="form">
+            <label for="FormControl" class="form-label">Studies title</label>
+            <input class="form-control" type="text" value="Applied Informatics" aria-label="Disabled input example"
+                disabled readonly>
+            <button type="button" class="btn">Edit</button>
+        </div>
+    </div>
+
+    </div>
 
     </div>
 

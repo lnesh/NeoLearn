@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Profile</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jura:wght@400;700&display=swap">
 
@@ -14,34 +14,6 @@
         body {
             font-family: 'Jura', sans-serif;
             margin: 0;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 25vh;
-            margin: 0;
-        }
-
-        .textbox-container {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .textbox {
-            background-color: #e1e1e1;
-            border-radius: 10px;
-            padding: 10px;
-            width: 500px;
-            text-align: left;
-            position: relative;
-        }
-
-        .label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
         }
 
         .edit-button {
@@ -75,11 +47,12 @@
             position: relative;
             display: inline-block;
             align-items: center;
+            padding: 10px;
         }
 
         .profile-pic {
             border-radius: 50%;
-            border: 3px solid rgb(152, 0, 227);
+            border: 3px solid rgb(130, 21, 185);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             margin-top: -60px;
             display: inline-block;
@@ -87,8 +60,16 @@
 
         h1 {
             font-family: 'Jura', sans-serif;
-            color: rgb(152, 0, 227);
+            color: rgb(130, 21, 185);
             margin-top: 1px;
+        }
+
+        .form-look {
+            color: #9b9b9b;
+            padding: -20px;
+            border-radius: 20px;
+            width: 500px;
+            margin: 0 auto;
         }
     </style>
 
@@ -103,7 +84,7 @@
 
     <div style="display: flex;">
         <!-- <img src="./media/arrowicon.png" alt="backarrow" width="60" height="60"> -->
-        <h1 style="padding: 50px;"> Profile</h1>
+        <h1 style="padding: 20px;"> Profile</h1>
     </div>
 
     <div class="profile-pic-container" style="display: flex; justify-content: center; align-items: center;">
@@ -112,40 +93,34 @@
             <button class="edit-button-pfp" onclick="editProfile('profilepic')">Edit</button>
         </div>
     </div>
-    
+
+    <div class="form-look">
+        <div class="form">
+            <label for="FormControl" class="form-label">Full name</label>
+            <input class="form-control" type="text" value="Andrew G. Mate" aria-label="Disabled input example" disabled readonly>
+            <button type="button" class="btn">Edit</button>
+        </div>
+    </div>
+
+    <div class="form-look">
+        <div class="form">
+            <label for="FormControl" class="form-label">E-mail address</label>
+            <input class="form-control" type="text" value="andrew-gmate@dumpmail.eu" aria-label="Disabled input example" disabled readonly>
+            <button type="button" class="btn">Edit</button>
+        </div>
+    </div>
+
+    <div class="form-look">
+        <div class="form">
+            <label for="FormControl" class="form-label">Username</label>
+            <input class="form-control" type="text" value="Andy G" aria-label="Disabled input example" disabled readonly>
+            <button type="button" class="btn">Edit</button>
+        </div>
+    </div>
 
     <!-- <div style="text-align: center; color: rgb(152, 0, 227);">
                 <p>AndyG</p>
             </div> -->
-
-
-
-    <div class="container">
-        <div class="row">
-            <div>
-                <label for="fullname" class="label">Full name</label>
-                <div id="fullname" class="textbox">
-                    Andrew G. Mate
-                    <button class="edit-button" onclick="editProfile('fullname')">Edit</button>
-                </div>
-            </div>
-
-            <div>
-                <label for="email" class="label">E-mail address</label>
-                <div id="email" class="textbox">
-                    andrew-gmate@dumpmail.eu
-                    <button class="edit-button" onclick="editProfile('email')">Edit</button>
-                </div>
-            </div>
-
-            <div>
-                <label for="username" class="label">Username</label>
-                <div id="username" class="textbox">
-                    AndyG
-                    <button class="edit-button" onclick="editProfile('username')">Edit</button>
-                </div>
-            </div>
-        </div>
 
     </div>
 
