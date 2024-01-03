@@ -68,14 +68,14 @@
                                         </div>
 
                                         <div class="pt-1 mb-4">
-                                            <input class="btn btn-dark btn-lg btn-block" type="submit"
+                                            <input class="btn btn-dark btn-lg btn-block" name="teacher-login" type="submit"
                                                 style="background-color: #401e65; border: none;" value="Login as teacher">
                                         </div>
                                         </div>
 
                                         <div style="color: #6F4B96;">
                                             <a class="small text-muted" href="#!">Forgot password?</a>
-                                        <p >Don't have an account? <a href="./sign-up.html" style="text-decoration: none; color: #6F4B96; font-weight: 500;"
+                                        <p >Don't have an account? <a href="./sign-up.php" style="text-decoration: none; color: #6F4B96; font-weight: 500;"
                                                 >Register here</a></p>
                                         <a href="#!" class="small text-muted">Terms of use.</a>
                                         <a href="#!" class="small text-muted">Privacy policy</a>

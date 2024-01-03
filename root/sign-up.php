@@ -35,7 +35,7 @@
         <div class="card" style="border-radius: 15px;">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="./media/pexels-liza-summer-6347976.jpg" alt="login form" class="img-fluid"
+              <img src="./media/pexels-liza-summer-6347976.jpg" alt="signup form" class="img-fluid"
                 style="border-radius: 15px 0 0 15px;" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
@@ -79,18 +79,18 @@
 
                   <div style="display: flex; gap: 10px; ">
                     <div class="pt-1 mb-4">
-                      <input class="btn btn-dark btn-lg btn-block" name="submit" type="submit"
+                      <input class="btn btn-dark btn-lg btn-block" name="student-register" type="submit"
                         style="font-size: 15px; background-color: #6F4B96; border: none;" value="Register as student">
                     </div>
-<!-- 
+
                     <div class="pt-1 mb-4">
-                      <input class="btn btn-dark btn-lg btn-block" name="teacher-submit" type="submit"
+                      <input class="btn btn-dark btn-lg btn-block" name="teacher-register" type="submit"
                         style="font-size: 15px; background-color: #401e65; border: none;" value="Register as teacher">
                     </div>
                   </div>
-                  <div style="color: #6F4B96;"> -->
+                  <div style="color: #6F4B96;">
 
-                    <p>Already have an account? <a href="./login.html"
+                    <p>Already have an account? <a href="./login.php"
                         style="text-decoration: none; color: #6F4B96; font-weight: 500;">Login here</a></p>
                     <a href="#!" class="small text-muted">Terms of use.</a>
                     <a href="#!" class="small text-muted">Privacy policy</a>
