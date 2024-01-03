@@ -41,7 +41,7 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-3 p-lg-5 text-black">
 
-                <form>
+                <form action="./backend/signup.php" method="POST">
 
                   <div class="d-flex justify-content-center align-items-center mb-2 ">
                     <img src="./media/NeoLearnLogo.png" alt="logo" width="200">
@@ -79,16 +79,16 @@
 
                   <div style="display: flex; gap: 10px; ">
                     <div class="pt-1 mb-4">
-                      <input class="btn btn-dark btn-lg btn-block" type="submit"
+                      <input class="btn btn-dark btn-lg btn-block" name="submit" type="submit"
                         style="font-size: 15px; background-color: #6F4B96; border: none;" value="Register as student">
                     </div>
-
+<!-- 
                     <div class="pt-1 mb-4">
-                      <input class="btn btn-dark btn-lg btn-block" type="submit"
+                      <input class="btn btn-dark btn-lg btn-block" name="teacher-submit" type="submit"
                         style="font-size: 15px; background-color: #401e65; border: none;" value="Register as teacher">
                     </div>
                   </div>
-                  <div style="color: #6F4B96;">
+                  <div style="color: #6F4B96;"> -->
 
                     <p>Already have an account? <a href="./login.html"
                         style="text-decoration: none; color: #6F4B96; font-weight: 500;">Login here</a></p>
