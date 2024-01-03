@@ -63,7 +63,7 @@
                                         
                                         <div style="display: flex; gap: 10px;">
                                         <div class="pt-1 mb-4">
-                                            <input class="btn btn-dark btn-lg btn-block" style="background-color: #6F4B96; border: none;" value="Login as student" type="submit">
+                                            <input class="btn btn-dark btn-lg btn-block" style="background-color: #6F4B96; border: none;" value="Login as student" name="student-login" type="submit">
                                             
                                         </div>
 
