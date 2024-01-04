@@ -8,22 +8,9 @@
     <!-- Eρώτηση: Έχει νόημα το SEO σε όλες τις σελίδες; -->
     <!-- Meta title SEO -->
     <title>
-        NeoLearn: Homepage
+        NeoLearn: Dashboard
     </title>
 
-    <!-- Meta description SEO -->
-    <meta name="description"
-        content="NeoLearn is an e-learning platform available for both students and teachers or educators. All courses are available in videos, pdf or text.Unlock the world of coding and explore a wide range of programming courses, from beginner to advanced levels. Master languages like Python, Java, JavaScript, and more. Start your coding journey today with our expert-led, interactive, and flexible online programming courses." />
-
-    <!-- Open Graph meta tags SEO -->
-    <meta property="og:title"
-        content="NeoLearn is an e-learning platform available for both students and teachers or educators." />
-
-    <meta property="og:description"
-        content="Unlock the world of coding and explore a wide range of programming courses, from beginner to advanced levels.
-         All courses are available in videos, pdf or text. Master languages like Python, Java, JavaScript, and more. Start your coding journey today with our expert-led, interactive, and flexible online programming courses." />
-
-    <meta property="og:image" content="root\media\NeoLearnLogo.png" />
 
     <!-- Favicon SEO -->
     <link rel="icon" href="media/favicon.ico" type="image/icon" />
