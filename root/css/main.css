@@ -50,3 +50,33 @@ body {
   font-size: 20px;
   
 }
+
+.video{
+  margin:20px; 
+  display:flex; 
+  align-self: center;
+}
+
+@media only screen and (max-width: 600px) {
+  /* CSS rules that apply when the width is at least 600px */
+  .video{
+    width: 300px;
+    height:200px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  /* CSS rules that apply when the width is at least 600px */
+  .video{
+    width: 450px;
+    height:300px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  /* CSS rules that apply when the width is at least 600px */
+  .video{
+    width: 650px;
+    height:400px;
+  }
+}
