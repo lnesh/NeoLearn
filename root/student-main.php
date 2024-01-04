@@ -185,12 +185,18 @@
                 <div class="slide">
                     <div class="card card-item" style="width: 18rem;">
                         <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <form action="student-course.php" method = "POST">
                         <div class="card-body">
                             <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
                             <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
-                            <div style="display: flex; justify-content: end;"><a href="#"
-                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                            <div style="display: flex; justify-content: end;">
+                            <input type="submit" name="view-course" value="View" class="label" style="background: none; border:none; text-decoration: none; color: #dabafc; padding-left: 3px;">
                         </div>
+                        </div>
+                        </form>
+
+                       
+
                     </div>
                 </div>
                 <div class="slide">
