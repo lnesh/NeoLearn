@@ -21,7 +21,6 @@
 
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/carousel.css">
 
 </head>
 
@@ -132,7 +131,7 @@
     <!-- Cards -->
 
     <!-- My courses -->
-    <div id="container">
+    <!-- <div id="container">
         
         <div id="slider-container">
             <h2 class="label" style="padding: 10px;">My Courses</h2>
@@ -201,7 +200,7 @@
     </div>
 
     
-    <!-- Drafts -->
+    //drafts
     <div id="container">
         
         <div id="slider-container">
@@ -270,7 +269,7 @@
     </div>
 
 
-    <!-- Saved for later -->
+    //saved
     <div class="container" id="saved" style="margin-top: 3%; display: flex;">
 
         <div class="row">
@@ -315,7 +314,7 @@
             <button class="col-2 btn btn-primary" style="width: 150px; height: 50px; align-self: center;">View
                 all</button>
         </div>
-    </div>
+    </div> -->
 
 
     <footer style="height: 20vh; display: flex; justify-content: center; align-items: end; margin: 20px;">
@@ -328,6 +327,6 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-    <script src="./scripts/carousel.js"></script>
+
 </body>
 </html>
