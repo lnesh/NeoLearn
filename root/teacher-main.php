@@ -28,6 +28,7 @@
 
 <body>
     
+    <!-- Navbar -->
     <nav class="navbar sticky-top" style="background-color:#492a6c; border-radius: 50px; margin: 20px;">
         <div class="container-fluid">
             <img src="./media/NeoLearnLogo.png" alt="logo" width="200">
@@ -44,6 +45,8 @@
                         d="M20,22 C18.8954305,22 18,21.1045695 18,20 C18,18.8954305 18.8954305,18 20,18 C21.1045695,18 22,18.8954305 22,20 C22,21.1045695 21.1045695,22 20,22 Z M20,14 C18.8954305,14 18,13.1045695 18,12 C18,10.8954305 18.8954305,10 20,10 C21.1045695,10 22,10.8954305 22,12 C22,13.1045695 21.1045695,14 20,14 Z M20,6 C18.8954305,6 18,5.1045695 18,4 C18,2.8954305 18.8954305,2 20,2 C21.1045695,2 22,2.8954305 22,4 C22,5.1045695 21.1045695,6 20,6 Z M12,22 C10.8954305,22 10,21.1045695 10,20 C10,18.8954305 10.8954305,18 12,18 C13.1045695,18 14,18.8954305 14,20 C14,21.1045695 13.1045695,22 12,22 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M12,6 C10.8954305,6 10,5.1045695 10,4 C10,2.8954305 10.8954305,2 12,2 C13.1045695,2 14,2.8954305 14,4 C14,5.1045695 13.1045695,6 12,6 Z M4,22 C2.8954305,22 2,21.1045695 2,20 C2,18.8954305 2.8954305,18 4,18 C5.1045695,18 6,18.8954305 6,20 C6,21.1045695 5.1045695,22 4,22 Z M4,14 C2.8954305,14 2,13.1045695 2,12 C2,10.8954305 2.8954305,10 4,10 C5.1045695,10 6,10.8954305 6,12 C6,13.1045695 5.1045695,14 4,14 Z M4,6 C2.8954305,6 2,5.1045695 2,4 C2,2.8954305 2.8954305,2 4,2 C5.1045695,2 6,2.8954305 6,4 C6,5.1045695 5.1045695,6 4,6 Z" />
                 </svg>
             </button>
+
+            <!-- Sidebar menu -->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header" style="background-color: #492a6c">
@@ -52,7 +55,7 @@
                         style="background-color: #dabafc;"></button>
                 </div>
 
-                <!-- Body -->
+                <!-- Sidebar body -->
                 <div class="offcanvas-body" style="background-color: #492a6c">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="gap: 20px;">
                         <li class="nav-item">
@@ -123,17 +126,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Navbar - vertical -->
-    <div class="container">
-
-
-        <!-- <h1 style="color: #684689;
-                               font-size: 45px;
-                               font-style: normal;
-                               font-weight: 700;
-                               line-height: normal;">Home</h1> -->
-
 
 
 
@@ -208,8 +200,7 @@
         </div>
     </div>
 
-
-
+    
     <!-- Drafts -->
     <div id="container">
         
