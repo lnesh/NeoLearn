@@ -93,8 +93,8 @@
 
                     <p>Already have an account? <a href="./login.php"
                         style="text-decoration: none; color: #6F4B96; font-weight: 500;">Login here</a></p>
-                    <a href="#!" class="small text-muted">Terms of use.</a>
-                    <a href="#!" class="small text-muted">Privacy policy</a>
+                    <a href="terms-of-use.html" class="small text-muted">Terms of use.</a>
+                    <a href="privacy-policy.html" class="small text-muted">Privacy policy</a>
                   </div>
 
                 </form>
