@@ -1,3 +1,12 @@
+//Πρόσβαση στο περιεχόμενο μόνο εφόσον έχει γίνει σύνδεση
+<?php
+session_start();
+
+if (!isset($_SESSION['mail'])) {
+    header('Location: login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
