@@ -50,15 +50,14 @@
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 0.2px; font-family: 'Epilogue', sans serif; color:#6F4B96; text-align: center;">Sign into your account
                                         </h5>
     
-                                        <div class="form-outline mb-4">
-                                            <input type="email" name="mail" id="form2Example17" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form2Example17">Email address</label>
+                                       <div class="form-floating mb-3">
+                                            <input type="email" name="mail" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                            <label for="floatingInput">Email address</label>
                                         </div>
     
-                                        <div class="form-outline mb-4">
-                                            <input type="password" name="password" id="form2Example27"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="form2Example27">Password</label>
+                                        <div class="form-floating mb-4">
+                                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                            <label for="floatingPassword">Password</label>
                                         </div>
                                         
                                         <div style="display: flex; gap: 10px;">
@@ -77,8 +76,8 @@
                                             <a class="small text-muted" href="#!">Forgot password?</a>
                                         <p >Don't have an account? <a href="./sign-up.php" style="text-decoration: none; color: #6F4B96; font-weight: 500;"
                                                 >Register here</a></p>
-                                        <a href="#!" class="small text-muted">Terms of use.</a>
-                                        <a href="#!" class="small text-muted">Privacy policy</a>
+                                        <a href="terms-of-use.html" class="small text-muted">Terms of use.</a>
+                                        <a href="privacy-policy.html" class="small text-muted">Privacy policy</a>
                                         </div>
                                         
                                     </form>

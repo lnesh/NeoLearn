@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['mail'])) {
+    header('Location: login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,22 +16,9 @@
     <!-- Eρώτηση: Έχει νόημα το SEO σε όλες τις σελίδες; -->
     <!-- Meta title SEO -->
     <title>
-        NeoLearn: Homepage
+        NeoLearn: Dashboard
     </title>
 
-    <!-- Meta description SEO -->
-    <meta name="description"
-        content="NeoLearn is an e-learning platform available for both students and teachers or educators. All courses are available in videos, pdf or text.Unlock the world of coding and explore a wide range of programming courses, from beginner to advanced levels. Master languages like Python, Java, JavaScript, and more. Start your coding journey today with our expert-led, interactive, and flexible online programming courses." />
-
-    <!-- Open Graph meta tags SEO -->
-    <meta property="og:title"
-        content="NeoLearn is an e-learning platform available for both students and teachers or educators." />
-
-    <meta property="og:description"
-        content="Unlock the world of coding and explore a wide range of programming courses, from beginner to advanced levels.
-         All courses are available in videos, pdf or text. Master languages like Python, Java, JavaScript, and more. Start your coding journey today with our expert-led, interactive, and flexible online programming courses." />
-
-    <meta property="og:image" content="root\media\NeoLearnLogo.png" />
 
     <!-- Favicon SEO -->
     <link rel="icon" href="media/favicon.ico" type="image/icon" />
@@ -144,7 +139,9 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Log out</a></li>
+                                    <form action="./backend/logout.php">
+                                    <li><input type="submit" class="dropdown-item" value="Logout"></li>
+                                </form>
                             </ul>
                         </li>
                     </ul>
@@ -200,12 +197,18 @@
                 <div class="slide">
                     <div class="card card-item" style="width: 18rem;">
                         <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <form action="student-course.php" method = "POST">
                         <div class="card-body">
                             <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
                             <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
-                            <div style="display: flex; justify-content: end;"><a href="#"
-                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                            <div style="display: flex; justify-content: end;">
+                            <input type="submit" name="view-course" value="View" class="label" style="background: none; border:none; text-decoration: none; color: #dabafc; padding-left: 3px;">
                         </div>
+                        </div>
+                        </form>
+
+                       
+
                     </div>
                 </div>
                 <div class="slide">
