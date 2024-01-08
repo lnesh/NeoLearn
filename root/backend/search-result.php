@@ -1,18 +1,9 @@
-<!-- search_results.php -->
 <?php
-// Database connection
-$host = 'localhost'; // or your database host
-$user = 'username'; // your database username
-$password = 'password'; // your database password
-$dbname = 'your_database'; // your database name
 
-// Create connection
-$conn = new mysqli($host, $user, $password, $dbname);
+include('./connect.php');
+?>
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+<?php
 
 // Get the search query
 $search_query = isset($_GET['query']) ? $_GET['query'] : '';
