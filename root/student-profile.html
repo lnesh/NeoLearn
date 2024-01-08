@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jura:wght@400;700&display=swap">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
@@ -16,8 +15,35 @@
             margin: 0;
         }
 
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 25vh;
+            margin: 0;
+        }
 
+        .textbox-container {
+            text-align: center;
+            margin-bottom: 10px;
+        }
 
+        .textbox {
+            background-color: #e1e1e1;
+            border-radius: 10px;
+            padding: 10px;
+            width: 500px;
+            text-align: left;
+            position: relative;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .edit-button,
         .edit-button-pfp {
             position: absolute;
             top: 5px;
@@ -27,6 +53,13 @@
             border-radius: 5px;
             background-color: #e1e1e1;
             cursor: pointer;
+        }
+
+        .edit-button {
+            color: #684689;
+        }
+
+        .edit-button-pfp {
             color: #8550BF;
             margin-top: -70px;
             margin-right: -10px;
@@ -37,7 +70,6 @@
             position: relative;
             display: inline-block;
             align-items: center;
-            padding: 10px;
         }
 
         .profile-pic {
@@ -51,18 +83,31 @@
         h1 {
             font-family: 'Jura', sans-serif;
             color: rgb(130, 21, 185);
-            margin-top: 1px;
+            margin-top: -40px;
+            margin-left: -50px;
         }
 
         .form-look {
             color: #9b9b9b;
-            padding: -20px;
+            padding: 20px;
             border-radius: 20px;
             width: 500px;
             margin: 0 auto;
+            margin-bottom: -50px;
+        }
+
+        .btn {
+            color: #924edc;
+            margin-left: -10px;
+            margin-top: -10px;
+        }
+
+        @media (max-width: 768px) {
+            .form-look {
+                width: 80%;
+            }
         }
     </style>
-
 </head>
 
 <body>
@@ -73,8 +118,8 @@
     </div>
 
     <div style="display: flex;">
-        <!-- <img src="./media/arrowicon.png" alt="backarrow" width="60" height="60"> -->
-        <h1 style="padding: 20px;"> Profile</h1>
+        <a href=".student-main.html"><img src="./media/arrowicon.png" width="60" height="60"></a>
+        <h1 style="padding: 50px;"> Profile</h1>
     </div>
 
     <div class="profile-pic-container" style="display: flex; justify-content: center; align-items: center;">
@@ -84,9 +129,7 @@
         </div>
     </div>
 
-    <!--<div style="text-align: center; color: rgb(152, 0, 227);">
-        <p>AndyG</p>
-    </div>-->
+
 
     <div class="form-look">
         <div class="form">
