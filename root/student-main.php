@@ -37,10 +37,7 @@ if (!isset($_SESSION['mail'])) {
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/carousel.css">
-    <link rel="stylesheet" href="css/navbar.css">
 </head>
-
-
 
 <body>
 
@@ -48,21 +45,14 @@ if (!isset($_SESSION['mail'])) {
 
     <nav class="navbar sticky-top" style="background-color:#492a6c; border-radius: 50px; margin: 20px;">
         <div class="container-fluid">
-            <div class="navbar-brand">
-            </div>
-            <form style="display: flex; gap: 18px;">
-
-
-                <input class="form-control" style=" border-radius: 25px; border: 1px solid #492a6c; " type="search"
+            <img src="./media/NeoLearnLogo.png" alt="logo" width="200">
+            <form action="./backend/search.php" method="GET" style="display: flex; gap: 18px;">
+                <input class="form-control" name="search"
+                    style="min-width: 300px; border-radius: 25px; border: 1px solid #492a6c; " type="search"
                     placeholder="Search" aria-label="Search">
-                <button class="btn" style=" background-color: #492a6c; color: aliceblue; border-radius: 25px;"
-                    type="submit">
-                    <svg style="width:30px; height:30px; " class=" text-purple-800 dark:text-purple" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
-                </button>
+                <button class="btn"
+                    style="width: 100px; background-color: #492a6c; color: aliceblue; border-radius: 25px;"
+                    type="submit" name="search-submit">Search</button>
             </form>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
                 <svg fill="#EDF" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -149,7 +139,7 @@ if (!isset($_SESSION['mail'])) {
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <form action="./backend/logout.php">
+                                    <form action="./backend/logout.php">
                                     <li><input type="submit" class="dropdown-item" value="Logout"></li>
                                 </form>
                             </ul>
@@ -174,7 +164,7 @@ if (!isset($_SESSION['mail'])) {
 
 
 
-        <!-- <div class=" col align-items-start" style="margin-top: 3%; display: flex; gap: 10px; ">
+        <div class=" col align-items-start" style="margin-top: 3%; display: flex; gap: 10px; ">
 
 
             <button class="btn tag">Web Development</button>
@@ -191,7 +181,7 @@ if (!isset($_SESSION['mail'])) {
             <a href="" style="text-decoration: none; color: #684689; padding-top: 2px; font-weight: 600;">See more
                 categories > </a>
 
-        </div> -->
+        </div>
     </div>
 
     <!-- Cards -->
@@ -207,19 +197,17 @@ if (!isset($_SESSION['mail'])) {
                 <div class="slide">
                     <div class="card card-item" style="width: 18rem;">
                         <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
-                        <form action="student-course.php" method="POST">
-                            <div class="card-body">
-                                <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction
-                                </h5>
-                                <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
-                                <div style="display: flex; justify-content: end;">
-                                    <input type="submit" name="view-course" value="View" class="label"
-                                        style="background: none; border:none; text-decoration: none; color: #dabafc; padding-left: 3px;">
-                                </div>
-                            </div>
+                        <form action="student-course.php" method = "POST">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
+                            <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
+                            <div style="display: flex; justify-content: end;">
+                            <input type="submit" name="view-course" value="View" class="label" style="background: none; border:none; text-decoration: none; color: #dabafc; padding-left: 3px;">
+                        </div>
+                        </div>
                         </form>
 
-
+                       
 
                     </div>
                 </div>
