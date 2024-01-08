@@ -1,22 +1,27 @@
 <?php
+// Include the connect.php file to establish the database connection
+include_once 'connect.php';
 
-include('./connect.php');
-?>
+// Get the search term from the URL
+$searchTerm = $_GET['search'];
 
-<?php
+// Prepare the SQL query to search for the term
+$query = "SELECT * FROM courses WHERE title LIKE '%$searchTerm%'";
 
-$search = $db->real_escape_string($_POST['search']);
+// Execute the query
+$results = mysqli_query($conn, $query);
 
-$query = "SELECT * FROM courses WHERE title LIKE '%$search%'"; // 'courses' and 'title' should be replaced with your actual table name and column
-$result = $db->query($query);
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "<p>" . $row['title'] . "</p>"; // Customize how you want to display the courses
+// Check if there were any results found
+if (mysqli_num_rows($results) > 0) {
+    // Display the search results
+    echo '<ul>';
+    while ($row = mysqli_fetch_assoc($results)) {
+        echo '<li><a href="post.php">' . $row['title'] . '</a></li>';
     }
+    echo '</ul>';
 } else {
-    echo "<p>No results found</p>";
+    echo 'No results found for "' . $searchTerm . '"';
 }
 
-$db->close();
-?>
+// Close the database connection
+mysqli_close($conn);
