@@ -7,5 +7,6 @@ if (isset($_SESSION['mail'])) {
     header('Location: ../login.php');
 } else {
     echo '<script>alert("You are not logged in.")</script>';
+    header("Location: ../login.php");
 }
 ?>

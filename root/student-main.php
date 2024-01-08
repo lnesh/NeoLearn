@@ -129,7 +129,9 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Log out</a></li>
+                                    <form action="./backend/logout.php">
+                                    <li><input type="submit" class="dropdown-item" value="Logout"></li>
+                                </form>
                             </ul>
                         </li>
                     </ul>
