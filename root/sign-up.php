@@ -35,13 +35,13 @@
         <div class="card" style="border-radius: 15px;">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="./media/pexels-liza-summer-6347976.jpg" alt="login form" class="img-fluid"
+              <img src="./media/pexels-liza-summer-6347976.jpg" alt="signup form" class="img-fluid"
                 style="border-radius: 15px 0 0 15px;" />
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-3 p-lg-5 text-black">
 
-                <form>
+                <form action="./backend/signup.php" method="POST">
 
                   <div class="d-flex justify-content-center align-items-center mb-2 ">
                     <img src="./media/NeoLearnLogo.png" alt="logo" width="200">
@@ -52,37 +52,49 @@
                     Let's create your account!
                   </h5>
 
-                  <div class="form-outline mb-4">
-                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                    <label class="form-label" for="form3Example1cg">Your Name</label>
+                  <div class="form-floating mb-3">
+                    <input type="text" name="fullname" id="floatingInput" class="form-control" placeholder="" />
+                    <label for="floatingInput">Full Name</label>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="email" id="form2Example27" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example1=27">Email address</label>
+
+                  <div class="form-floating mb-3">
+                    <input type="text" name="username" id="floatingInput" class="form-control form-control-lg" placeholder="" />
+                    <label  for="floatingInput">Username</label>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example27">Password</label>
+                  <div class="form-floating mb-3">
+                    <input type="email" name="mail" id="floatingInput" class="form-control form-control-lg" placeholder="name@example.com"/>
+                    <label for="floatingInput">Email address</label>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example27">Confirm password</label>
+                  <div class="form-floating mb-3">
+                    <input type="password" name="password" id="floatingInput" class="form-control form-control-lg" placeholder="" />
+                    <label for="floatingInput">Password</label>
                   </div>
 
-                  <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="button"
-                      style="background-color: #6F4B96; border: none;">Register</button>
+                  <div class="form-floating mb-3">
+                    <input type="password" name="passwordRpt" id="floatingInput" class="form-control form-control-lg" placeholder="" />
+                    <label for="floatingInput">Confirm password</label>
                   </div>
 
+                  <div style="display: flex; gap: 10px; ">
+                    <div class="pt-1 mb-4">
+                      <input class="btn btn-dark btn-lg btn-block" name="student-register" type="submit"
+                        style="font-size: 15px; background-color: #6F4B96; border: none;" value="Register as student">
+                    </div>
+
+                    <div class="pt-1 mb-4">
+                      <input class="btn btn-dark btn-lg btn-block" name="teacher-register" type="submit"
+                        style="font-size: 15px; background-color: #401e65; border: none;" value="Register as teacher">
+                    </div>
+                  </div>
                   <div style="color: #6F4B96;">
-                    
-                    <p>Already have an account? <a href="./login.html"
+
+                    <p>Already have an account? <a href="./login.php"
                         style="text-decoration: none; color: #6F4B96; font-weight: 500;">Login here</a></p>
-                    <a href="#!" class="small text-muted">Terms of use.</a>
-                    <a href="#!" class="small text-muted">Privacy policy</a>
+                    <a href="terms-of-use.html" class="small text-muted">Terms of use.</a>
+                    <a href="privacy-policy.html" class="small text-muted">Privacy policy</a>
                   </div>
 
                 </form>
