@@ -160,19 +160,16 @@
         <div class="container-fluid">
             <div class="navbar-brand">
             </div>
-            <form style="display: flex; gap: 18px;">
-
-
-                <input class="form-control" style=" border-radius: 25px; border: 1px solid #492a6c; " type="search"
-                    placeholder="Search" aria-label="Search">
-                <button class="btn" style=" background-color: #492a6c; color: aliceblue; border-radius: 25px;"
-                    type="submit">
-                    <svg style="width:30px; height:30px; " class=" text-purple-800 dark:text-purple" aria-hidden="true"
+            <form action="./backend/search.php" method="GET" style="display: flex; gap: 18px;">
+                <input class="form-control" name="search" style=" border-radius: 25px; border: 1px solid #492a6c; "
+                    type="search" placeholder="Search" aria-label="Search">
+                <button class="btn" name="search-submit"
+                    style=" background-color: #492a6c; color: aliceblue; border-radius: 25px;" type="submit"><svg
+                        style="width:30px; height:30px; " class=" text-purple-800 dark:text-purple" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
-                </button>
+                    </svg></button>
             </form>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
                 <svg fill="#EDF" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
