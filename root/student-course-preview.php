@@ -10,145 +10,145 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #D6BEEE;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #D6BEEE;
+    }
 
-        .header {
-            border-radius: 0 45px 45px 45px;
-            background: #491774;
-            color: #fff;
-            margin: 50px;
-        }
+    .header {
+        border-radius: 0 45px 45px 45px;
+        background: #491774;
+        color: #fff;
+        margin: 50px;
+    }
 
-        .header h1 {
-            margin: 0;
-            text-align: center;
-            padding-top: 40px;
-            padding-bottom: 20px;
-        }
+    .header h1 {
+        margin: 0;
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
 
-        .header p {
-            text-align: left;
-            color: #cea4fb;
-            padding-left: 120px;
-            padding-right: 120px;
-        }
+    .header p {
+        text-align: left;
+        color: #cea4fb;
+        padding-left: 120px;
+        padding-right: 120px;
+    }
 
-        .content {
-            margin: 100px;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
+    .content {
+        margin: 100px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
 
-        }
+    }
 
-        .content h2 {
-            color: #4f1f84;
-        }
+    .content h2 {
+        color: #4f1f84;
+    }
 
-        .content p {
-            line-height: 1.6;
-        }
+    .content p {
+        line-height: 1.6;
+    }
 
-        .enroll-button,
-        .save-course-button {
-            border-radius: 12px;
-            padding: 10px;
-            width: 220px;
-            /* Width */
-            height: 74px;
-            /* Height */
-            text-align: center;
-            background: #e08231;
-            color: #000000;
-            border: none;
-            cursor: pointer;
-            font-size: 30px;
-            margin-top: 20px;
-        }
+    .enroll-button,
+    .save-course-button {
+        border-radius: 12px;
+        padding: 10px;
+        width: 220px;
+        /* Width */
+        height: 74px;
+        /* Height */
+        text-align: center;
+        background: #e08231;
+        color: #000000;
+        border: none;
+        cursor: pointer;
+        font-size: 30px;
+        margin-top: 20px;
+    }
 
-        .skills {
-            margin: 20px 0;
-            list-style: none;
-            padding: 0;
-        }
+    .skills {
+        margin: 20px 0;
+        list-style: none;
+        padding: 0;
+    }
 
-        .skills li {
-            padding: 5px 0;
-        }
+    .skills li {
+        padding: 5px 0;
+    }
 
-        .skills li::before {
-            content: '✔';
-            margin-right: 10px;
-            color: #4caf50;
-        }
+    .skills li::before {
+        content: '✔';
+        margin-right: 10px;
+        color: #4caf50;
+    }
 
-        .tags {
-            text-align: left;
-            padding: 10px 0;
-        }
+    .tags {
+        text-align: left;
+        padding: 10px 0;
+    }
 
-        .tag {
-            display: inline-block;
-            background: #CBC3E3;
-            color: #492a6c;
-            padding: 5px 15px;
-            margin: 5px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
+    .tag {
+        display: inline-block;
+        background: #CBC3E3;
+        color: #492a6c;
+        padding: 5px 15px;
+        margin: 5px;
+        border-radius: 20px;
+        font-size: 14px;
+    }
 
-        .profile-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            gap: 10px;
-            padding: 20px;
-        }
+    .profile-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+        padding: 20px;
+    }
 
-        .profile-photo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid #491774;
-        }
+    .profile-photo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid #491774;
+    }
 
-        .instructor-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-right: 20px;
-            /* Add some space between instructor info and the button */
-        }
+    .instructor-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 20px;
+        /* Add some space between instructor info and the button */
+    }
 
-        .instructor-info p,
-        .instructor-info p.name {
-            margin: 0;
-            padding: 0;
-            line-height: 1;
-        }
+    .instructor-info p,
+    .instructor-info p.name {
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+    }
 
-        .enroll-button {
-            margin: 0 20px;
-            /* Add margin to both sides of the button */
-        }
+    .enroll-button {
+        margin: 0 20px;
+        /* Add margin to both sides of the button */
+    }
 
-        .save-course-text {
-            color: #E08231;
-            cursor: pointer;
-            font-size: 18px;
-            text-align: right;
-            margin-left: 20px;
-            /* Add margin to the left side of the save course text */
-            margin-right: 0;
-            /* Remove margin from the right side */
-            white-space: nowrap;
-            /* Prevent wrapping of the save course text */
-        }
+    .save-course-text {
+        color: #E08231;
+        cursor: pointer;
+        font-size: 18px;
+        text-align: right;
+        margin-left: 20px;
+        /* Add margin to the left side of the save course text */
+        margin-right: 0;
+        /* Remove margin from the right side */
+        white-space: nowrap;
+        /* Prevent wrapping of the save course text */
+    }
     </style>
 </head>
 
@@ -212,7 +212,8 @@
                         <li class="nav-item">
                             <a href="#instructors" class="nav-link menu-text">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" fill="#EDF"
-                                    viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                                    viewBox="0 0 640 512">
+                                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
                                     <path
                                         d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z" />
                                 </svg><span class=" ms-4 d-none d-sm-inline ">Instructors</span>
@@ -304,7 +305,9 @@
                     <p style="color: #f5f5f5;"><strong>Instructor:</strong></p>
                     <p class="name" style="color: #E08231;">Martin Fury</p>
                 </div>
-                <button class="enroll-button">Enroll</button>
+                <form action="./backend/enroll.php" method="POST">
+                    <button name="enroll" type="submit" class=" enroll-button">Enroll</button>
+                </form>
                 <div class="save-course-text">Save<br>Course</div>
             </div>
 
@@ -331,8 +334,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
