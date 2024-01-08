@@ -117,7 +117,8 @@
     </nav>
 
 
-    <div class="container-fluid" style="background: white;"><?php if (isset($_POST['view-course'])) $sql="SELECT * FROM courses WHERE course_id = 0;";
+    <div class="container-fluid" style="background: white;">
+        <?php if (isset($_POST['view-course'])) $sql="SELECT * FROM courses WHERE course_id = 0;";
     $result=mysqli_query($conn, $sql);
 
     $resultCheck=mysqli_num_rows($result);
