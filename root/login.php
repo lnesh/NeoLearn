@@ -50,15 +50,14 @@
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 0.2px; font-family: 'Epilogue', sans serif; color:#6F4B96; text-align: center;">Sign into your account
                                         </h5>
     
-                                        <div class="form-outline mb-4">
-                                            <input type="email" name="mail" id="form2Example17" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form2Example17">Email address</label>
+                                       <div class="form-floating mb-3">
+                                            <input type="email" name="mail" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                            <label for="floatingInput">Email address</label>
                                         </div>
     
-                                        <div class="form-outline mb-4">
-                                            <input type="password" name="password" id="form2Example27"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="form2Example27">Password</label>
+                                        <div class="form-floating mb-4">
+                                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                            <label for="floatingPassword">Password</label>
                                         </div>
                                         
                                         <div style="display: flex; gap: 10px;">
