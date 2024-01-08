@@ -1,11 +1,9 @@
 <?php
-// Database connection
-// Replace with your database connection details
-$db = new mysqli("hostname", "username", "password", "database_name");
 
-if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
-}
+include('./connect.php');
+?>
+
+<?php
 
 $search = $db->real_escape_string($_POST['search']);
 
