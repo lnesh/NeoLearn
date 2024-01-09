@@ -6,6 +6,14 @@ if (!isset($_SESSION['mail'])) {
 }
 ?>
 
+<?php
+// Include the connect.php file to establish the database connection
+include_once './backend/connect.php';
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,8 +44,8 @@ if (!isset($_SESSION['mail'])) {
 
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/navbar.css">
+
 
 </head>
 
@@ -156,54 +164,71 @@ if (!isset($_SESSION['mail'])) {
         </div>
     </nav>
 
-    <!-- Navbar - vertical -->
-    <div class="container">
+    <?php
+// Get the user ID from the current session
+$mail = $_SESSION['mail'];
 
 
-        <!-- <h1 style="color: #684689;
-                               font-size: 45px;
-                               font-style: normal;
-                               font-weight: 700;
-                               line-height: normal;">Home</h1> -->
+$sql = "SELECT student_id FROM student WHERE mail = '$mail'";
 
+$result = mysqli_query($conn, $sql);
 
+if (mysqli_num_rows($result) > 0) {
+$row = mysqli_fetch_assoc($result);
+$student_id = $row['student_id'];
+} else {
+echo "No student found with that email address";
+}
 
+// Prepare SQL query to retrieve the enrolled courses for the user
+$query = "SELECT c.title, c.description, c.teacher_id FROM courses c JOIN enrollments e ON c.course_id = e.course_id
+WHERE e.student_id = $student_id";
 
-        <div class=" col align-items-start" style="margin-top: 3%; display: flex; gap: 10px; ">
+// Execute the query
+$result = mysqli_query($conn, $query);
 
+// Check if the user has enrolled in any courses
+if (mysqli_num_rows($result) > 0) {
+// Display the list of enrolled courses
 
-            <button class="btn tag">Web Development</button>
-            <button class="btn tag">Javascript</button>
-            <button class="btn tag">HTML</button>
-            <button class="btn tag">Web Development</button>
-            <button class="btn tag">Javascript</button>
-            <button class="btn tag">HTML</button>
-            <button class="btn tag">Web Development</button>
-            <button class="btn tag">Javascript</button>
-            <button class="btn tag">HTML</button>
+echo '<div class="container-fluid">';
+echo '<h1>Enrolled Courses</h1>';
+echo '<ul style="display:flex; gap:20px">';
+    while ($row = mysqli_fetch_assoc($result)) {
+    $courseTitle = $row['title'];
+    $courseDescription = $row['description'];
+    $teacher_id = $row['teacher_id'];
 
+    $sql2 = "SELECT fullname FROM teacher WHERE teacher_id = '$teacher_id'";
 
-            <a href="" style="text-decoration: none; color: #684689; padding-top: 2px; font-weight: 600;">See more
-                categories > </a>
+    $result2 = mysqli_query($conn, $sql2);
 
+    if (mysqli_num_rows($result2) > 0) {
+    $row = mysqli_fetch_assoc($result2);
+    $fullname = $row['fullname'];
+    } else {
+    echo "No teacher found with that name";
+    }
+    
+
+    echo '<div class="card" style="width: 18rem;">
+        <h2 class="card-header">' . $courseTitle . '</h2>
+        <div class="card-body">
+        <p class="card-text">' . $courseDescription . '</p>
         </div>
-    </div>
+        <p class="card-footer">Instructor: ' . $fullname . '</p>
+        </div>';
+    }
+    echo '</ul>';
+    echo '</div>';
+} else {
+// No enrolled courses found
+echo "You are not enrolled in any courses.";
+}
 
-    <!-- Cards -->
-    <!-- <ul>
-    <li>
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-             <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-         </div>
-    </li>
-</ul> -->
-
-
+// Close the database connection
+mysqli_close($conn);
+?>
 
 
 
@@ -221,49 +246,3 @@ if (!isset($_SESSION['mail'])) {
 </body>
 
 </html>
-
-<?php
-// Include the connect.php file to establish the database connection
-include_once './backend/connect.php';
-include './backend/id.php';
-
-
-
-
-// Prepare SQL query to retrieve the user's enrolled courses
-$query = "SELECT course_id FROM enrollments WHERE student_id = $userId";
-
-// Execute the query
-$result = mysqli_query($conn, $query);
-
-// Check if there are any enrolled courses
-if (mysqli_num_rows($result) > 0) {
-    // Display a list of the enrolled courses
-    echo '<ul>';
-    while ($row = mysqli_fetch_assoc($result)) {
-        $courseId = $row['course_id'];
-
-        // Retrieve course details for each enrolled course
-        $courseQuery = "SELECT name, description FROM courses WHERE id = $courseId";
-        $courseResult = mysqli_query($conn, $courseQuery);
-        $courseRow = mysqli_fetch_assoc($courseResult);
-
-        $courseName = $courseRow['name'];
-        $courseDescription = $courseRow['description'];
-
-        // Display the course information
-        echo '<li>';
-        echo '<a href="course.php?id=' . $courseId . '">' . $courseName . '</a>';
-        echo '<p>' . $courseDescription . '</p>';
-        echo '</li>';
-    }
-    echo '</ul>';
-} else {
-    // No enrolled courses found
-    echo 'No enrolled courses found';
-}
-
-// Close the database connection
-mysqli_close($conn);
-
-    ?>

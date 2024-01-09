@@ -15,14 +15,14 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  /* For mobile phones: */
+
   [class*="bg-img"] {
     height: 90vh;
   }
 }
 
 @media only screen and (max-width: 425px) {
-  /* For mobile phones: */
+
   [class*="bg-img"] {
     width: 0;
   }
