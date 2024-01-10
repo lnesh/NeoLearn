@@ -67,12 +67,39 @@ include_once './backend/connect.php';
                             d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg></button>
             </form>
+
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle"
+                    style="background-color:white; color:purple; border: solid 3px;" href="#" role="button"
+                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categories
+                </a>
+
+                <ul class="dropdown-menu" style="background-color:purple; color:white;"
+                    aria-labelledby="dropdownMenuLink">
+                    <li class="dropdown-li"> <a class="dropdown-item" href="#">HTML</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">PHP</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">Javascript</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">Java</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">React</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">JQuery</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">CSS</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">Bootstrap</a></li>
+
+
+
+                </ul>
+            </div>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
                 <svg fill="#EDF" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
                         d="M20,22 C18.8954305,22 18,21.1045695 18,20 C18,18.8954305 18.8954305,18 20,18 C21.1045695,18 22,18.8954305 22,20 C22,21.1045695 21.1045695,22 20,22 Z M20,14 C18.8954305,14 18,13.1045695 18,12 C18,10.8954305 18.8954305,10 20,10 C21.1045695,10 22,10.8954305 22,12 C22,13.1045695 21.1045695,14 20,14 Z M20,6 C18.8954305,6 18,5.1045695 18,4 C18,2.8954305 18.8954305,2 20,2 C21.1045695,2 22,2.8954305 22,4 C22,5.1045695 21.1045695,6 20,6 Z M12,22 C10.8954305,22 10,21.1045695 10,20 C10,18.8954305 10.8954305,18 12,18 C13.1045695,18 14,18.8954305 14,20 C14,21.1045695 13.1045695,22 12,22 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M12,6 C10.8954305,6 10,5.1045695 10,4 C10,2.8954305 10.8954305,2 12,2 C13.1045695,2 14,2.8954305 14,4 C14,5.1045695 13.1045695,6 12,6 Z M4,22 C2.8954305,22 2,21.1045695 2,20 C2,18.8954305 2.8954305,18 4,18 C5.1045695,18 6,18.8954305 6,20 C6,21.1045695 5.1045695,22 4,22 Z M4,14 C2.8954305,14 2,13.1045695 2,12 C2,10.8954305 2.8954305,10 4,10 C5.1045695,10 6,10.8954305 6,12 C6,13.1045695 5.1045695,14 4,14 Z M4,6 C2.8954305,6 2,5.1045695 2,4 C2,2.8954305 2.8954305,2 4,2 C5.1045695,2 6,2.8954305 6,4 C6,5.1045695 5.1045695,6 4,6 Z" />
                 </svg>
             </button>
+
+
+
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header" style="background-color: #492a6c">
@@ -185,16 +212,18 @@ $query = "SELECT c.title, c.description, c.teacher_id FROM courses c JOIN enroll
 WHERE e.student_id = $student_id";
 
 // Execute the query
-$result = mysqli_query($conn, $query);
+$result1 = mysqli_query($conn, $query);
 
 // Check if the user has enrolled in any courses
-if (mysqli_num_rows($result) > 0) {
+if (mysqli_num_rows($result1) > 0) {
 // Display the list of enrolled courses
 
 echo '<div class="container-fluid">';
-echo '<h1>Enrolled Courses</h1>';
+echo '<h1 style="padding:20px;">Enrolled Courses</h1>';
 echo '<ul style="display:flex; gap:20px">';
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result1)) {
+ 
+
     $courseTitle = $row['title'];
     $courseDescription = $row['description'];
     $teacher_id = $row['teacher_id'];
@@ -211,19 +240,29 @@ echo '<ul style="display:flex; gap:20px">';
     }
     
 
-    echo '<div class="card" style="width: 18rem;">
-        <h2 class="card-header">' . $courseTitle . '</h2>
+    echo '<div class="card card-item" style="width: 18rem;">
+        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+        
         <div class="card-body">
-        <p class="card-text">' . $courseDescription . '</p>
+        <h2 class="card-title" style="color: white; font-weight: 600; ">' . $courseTitle . '</h2>
+        <div class="card-text text" style="font-family: "Epilogue"; font-size: 15px;">' . $courseDescription . '</div>
+        
+        <div class="card-footer" style=" display: flex; flex-direction:row; justify-content: space-between; align-items:flex-end;">
+            
+         <p>' . $fullname . '</p>         
+         <a href="student-course.php?id=1"
+         style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a> 
+         </div>
+  
         </div>
-        <p class="card-footer">Instructor: ' . $fullname . '</p>
+ 
         </div>';
     }
     echo '</ul>';
     echo '</div>';
 } else {
 // No enrolled courses found
-echo "You are not enrolled in any courses.";
+echo '<h1 style="padding:50px;">You are not enrolled in any courses.</h1>';
 }
 
 // Close the database connection
@@ -242,7 +281,7 @@ mysqli_close($conn);
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <script src="./scripts/carousel.js"></script>
+
 </body>
 
 </html>
