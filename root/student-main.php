@@ -168,13 +168,13 @@ include_once './backend/connect.php';
                         </li>
 
                         <li class="nav-item dropdown" style="align-items: end;">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" style="text-decoration:none; color:white;" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Profile
                             </a>
 
 
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="background-color:black;">
                                 <li><a class="dropdown-item" href="#">View profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li>

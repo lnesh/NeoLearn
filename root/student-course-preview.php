@@ -14,6 +14,8 @@ $result = mysqli_query($conn, $query);
 // Check if the course exists
 if (mysqli_num_rows($result) > 0) {
 $row = mysqli_fetch_assoc($result);
+
+
 $courseTitle = $row['title'];
 $courseDescription = $row['description'];
 $teacher_id = $row['teacher_id'];

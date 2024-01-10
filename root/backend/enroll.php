@@ -1,15 +1,15 @@
 <?php
 // Include the connect.php file to establish the database connection
 include_once 'connect.php';
-include 'id.php';
+include 'getUserID.php';
 
 
-if (isset($_POST["student-register"])){
+if (isset($_POST["enroll"])){
 
-$studentId = $_GET['userId'];
+$studentId = $_GET['student_id'];
 
 // Get the course ID from the URL
-$courseId = $_GET['courseId'];
+$courseId = $_GET['course_id'];
 
 // Prepare the SQL query to check if the student is already enrolled in the course
 $query = "SELECT * FROM enrollments WHERE student_id = $studentId AND course_id = $courseId";
