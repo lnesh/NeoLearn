@@ -1,10 +1,11 @@
-.container {
+.container1 {
   width: 900px;
+  gap: 50px;
 }
 
 @media (max-width: 600px) {
-  .container {
-    width: 500px;
+  .container1 {
+    width: 450px;
   }
 }
 
@@ -43,8 +44,6 @@
   line-height: 1.6;
 }
 
-
-
 .enroll-button,
 .save-course-button {
   border-radius: 12px;
@@ -65,8 +64,9 @@
 
 @media (max-width: 700px) {
   .enroll-button {
-    width: 150px;
-    font-size: 25px;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
   }
 }
 
@@ -112,13 +112,14 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid #491774;
+  border: 2px solid #cea4fb;
+  margin: 15px;
 }
 
 .instructor-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   margin-right: 20px;
   /* Add some space between instructor info and the button */
 }
@@ -128,11 +129,25 @@
   margin: 0;
   padding: 0;
   line-height: 1;
+  text-align: left;
+}
+
+#save{
+    padding-left: 30px;
 }
 
 @media (max-width: 700px) {
   .instructor-info {
     display: none;
+  }
+
+  #save{
+    padding-left: 0;
+  }
+
+  .saved {
+    display: none;
+    padding-left: 0px;
   }
 }
 
