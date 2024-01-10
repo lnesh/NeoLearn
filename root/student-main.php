@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['mail'])) {
+    header('Location: login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,22 +16,9 @@
     <!-- Eρώτηση: Έχει νόημα το SEO σε όλες τις σελίδες; -->
     <!-- Meta title SEO -->
     <title>
-        NeoLearn: Homepage
+        NeoLearn: Dashboard
     </title>
 
-    <!-- Meta description SEO -->
-    <meta name="description"
-        content="NeoLearn is an e-learning platform available for both students and teachers or educators. All courses are available in videos, pdf or text.Unlock the world of coding and explore a wide range of programming courses, from beginner to advanced levels. Master languages like Python, Java, JavaScript, and more. Start your coding journey today with our expert-led, interactive, and flexible online programming courses." />
-
-    <!-- Open Graph meta tags SEO -->
-    <meta property="og:title"
-        content="NeoLearn is an e-learning platform available for both students and teachers or educators." />
-
-    <meta property="og:description"
-        content="Unlock the world of coding and explore a wide range of programming courses, from beginner to advanced levels.
-         All courses are available in videos, pdf or text. Master languages like Python, Java, JavaScript, and more. Start your coding journey today with our expert-led, interactive, and flexible online programming courses." />
-
-    <meta property="og:image" content="root\media\NeoLearnLogo.png" />
 
     <!-- Favicon SEO -->
     <link rel="icon" href="media/favicon.ico" type="image/icon" />
@@ -51,12 +46,13 @@
     <nav class="navbar sticky-top" style="background-color:#492a6c; border-radius: 50px; margin: 20px;">
         <div class="container-fluid">
             <img src="./media/NeoLearnLogo.png" alt="logo" width="200">
-            <form style="display: flex; gap: 18px;">
-                <input class="form-control" style="min-width: 300px; border-radius: 25px; border: 1px solid #492a6c; "
-                    type="search" placeholder="Search" aria-label="Search">
+            <form action="./backend/search.php" method="GET" style="display: flex; gap: 18px;">
+                <input class="form-control" name="search"
+                    style="min-width: 300px; border-radius: 25px; border: 1px solid #492a6c; " type="search"
+                    placeholder="Search" aria-label="Search">
                 <button class="btn"
                     style="width: 100px; background-color: #492a6c; color: aliceblue; border-radius: 25px;"
-                    type="submit">Search</button>
+                    type="submit" name="search-submit">Search</button>
             </form>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
                 <svg fill="#EDF" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +95,8 @@
                         <li class="nav-item">
                             <a href="#instructors" class="nav-link menu-text">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" fill="#EDF"
-                                    viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                                    viewBox="0 0 640 512">
+                                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
                                     <path
                                         d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z" />
                                 </svg><span class=" ms-4 d-none d-sm-inline ">Instructors</span>
@@ -142,7 +139,9 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Log out</a></li>
+                                    <form action="./backend/logout.php">
+                                    <li><input type="submit" class="dropdown-item" value="Logout"></li>
+                                </form>
                             </ul>
                         </li>
                     </ul>
@@ -189,7 +188,7 @@
 
     <!-- My courses -->
     <div id="container">
-        
+
         <div id="slider-container">
             <h2 class="label" style="padding: 10px;">Saved for later</h2>
             <span onclick="slideRight()" class="btn"></span>
@@ -198,12 +197,18 @@
                 <div class="slide">
                     <div class="card card-item" style="width: 18rem;">
                         <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+                        <form action="student-course.php" method = "POST">
                         <div class="card-body">
                             <h5 class="card-title" style="color: white; font-weight: 600; ">HTML: An introduction</h5>
                             <p class="card-text" style="font-family: 'Epilogue';font-size: 15px;">Martin Furry</p>
-                            <div style="display: flex; justify-content: end;"><a href="#"
-                                    style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a></div>
+                            <div style="display: flex; justify-content: end;">
+                            <input type="submit" name="view-course" value="View" class="label" style="background: none; border:none; text-decoration: none; color: #dabafc; padding-left: 3px;">
                         </div>
+                        </div>
+                        </form>
+
+                       
+
                     </div>
                 </div>
                 <div class="slide">
@@ -381,8 +386,8 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
     <script src="./scripts/carousel.js"></script>
 </body>

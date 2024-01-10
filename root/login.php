@@ -35,13 +35,13 @@
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0">
                             <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                                <img src="media/img1.webp"
                                     alt="login form" class="img-fluid" style="border-radius: 15px 0 0 15px;" />
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
     
-                                    <form>
+                                    <form action="./backend/login.php" method="POST">
     
                                         <div class="d-flex justify-content-center align-items-center mb-3 ">
                                             <img src="./media/NeoLearnLogo.png" alt="logo" width="200">
@@ -50,27 +50,34 @@
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 0.2px; font-family: 'Epilogue', sans serif; color:#6F4B96; text-align: center;">Sign into your account
                                         </h5>
     
-                                        <div class="form-outline mb-4">
-                                            <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form2Example17">Email address</label>
+                                       <div class="form-floating mb-3">
+                                            <input type="email" name="mail" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                            <label for="floatingInput">Email address</label>
                                         </div>
     
-                                        <div class="form-outline mb-4">
-                                            <input type="password" id="form2Example27"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="form2Example27">Password</label>
-                                        </div>
-    
-                                        <div class="pt-1 mb-4">
-                                            <button class="btn btn-dark btn-lg btn-block" type="button" style="background-color: #6F4B96; border: none;">Login</button>
+                                        <div class="form-floating mb-4">
+                                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                            <label for="floatingPassword">Password</label>
                                         </div>
                                         
+                                        <div style="display: flex; gap: 10px;">
+                                        <div class="pt-1 mb-4">
+                                            <input class="btn btn-dark btn-lg btn-block" style="background-color: #6F4B96; border: none;" value="Login as student" name="student-login" type="submit">
+                                            
+                                        </div>
+
+                                        <div class="pt-1 mb-4">
+                                            <input class="btn btn-dark btn-lg btn-block" name="teacher-login" type="submit"
+                                                style="background-color: #401e65; border: none;" value="Login as teacher">
+                                        </div>
+                                        </div>
+
                                         <div style="color: #6F4B96;">
                                             <a class="small text-muted" href="#!">Forgot password?</a>
-                                        <p >Don't have an account? <a href="./sign-up.html" style="text-decoration: none; color: #6F4B96; font-weight: 500;"
+                                        <p >Don't have an account? <a href="./sign-up.php" style="text-decoration: none; color: #6F4B96; font-weight: 500;"
                                                 >Register here</a></p>
-                                        <a href="#!" class="small text-muted">Terms of use.</a>
-                                        <a href="#!" class="small text-muted">Privacy policy</a>
+                                        <a href="terms-of-use.html" class="small text-muted">Terms of use.</a>
+                                        <a href="privacy-policy.html" class="small text-muted">Privacy policy</a>
                                         </div>
                                         
                                     </form>
