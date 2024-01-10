@@ -1,0 +1,155 @@
+.container {
+  width: 900px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 500px;
+  }
+}
+
+.header {
+  border-radius: 0 45px 45px 45px;
+  background: #491774;
+  color: #fff;
+  margin: 50px;
+}
+
+.header h1 {
+  margin: 0;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  font-weight: 700;
+}
+
+.header p {
+  text-align: left;
+  color: #cea4fb;
+}
+
+.content {
+  margin: 100px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.content h2 {
+  color: #4f1f84;
+}
+
+.content p {
+  line-height: 1.6;
+}
+
+
+
+.enroll-button,
+.save-course-button {
+  border-radius: 12px;
+  padding: 10px;
+  width: 220px;
+  /* Width */
+  height: 74px;
+  /* Height */
+  text-align: center;
+  background: #e08231;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .enroll-button {
+    width: 150px;
+    font-size: 25px;
+  }
+}
+
+.skills {
+  margin: 20px 0;
+  list-style: none;
+  padding: 0;
+}
+
+.skills li {
+  padding: 5px 0;
+}
+
+.skills li::before {
+  content: "✔";
+  margin-right: 10px;
+  color: #4caf50;
+}
+
+.tags {
+  text-align: left;
+  padding: 10px 0;
+}
+
+.tag {
+  display: inline-block;
+  background: #cbc3e3;
+  color: #492a6c;
+  padding: 5px 15px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.profile-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #491774;
+}
+
+.instructor-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 20px;
+  /* Add some space between instructor info and the button */
+}
+
+.instructor-info p,
+.instructor-info p.name {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+@media (max-width: 700px) {
+  .instructor-info {
+    display: none;
+  }
+}
+
+.enroll-button {
+  margin: 0 20px;
+  /* Add margin to both sides of the button */
+}
+
+.save-course-text {
+  color: #e08231;
+  cursor: pointer;
+  font-size: 18px;
+  text-align: right;
+  margin-left: 20px;
+  /* Add margin to the left side of the save course text */
+  margin-right: 0;
+  /* Remove margin from the right side */
+  white-space: nowrap;
+  /* Prevent wrapping of the save course text */
+}

@@ -1,3 +1,46 @@
+<?php
+// Get the course ID from the URL
+$courseId = 1;
+
+// Include the connect.php file to establish the database connection
+include_once './backend/connect.php';
+
+// Prepare SQL query to retrieve course details
+$query = "SELECT c.title, c.description, c.teacher_id FROM courses c WHERE c.course_id = $courseId";
+
+// Execute the query
+$result = mysqli_query($conn, $query);
+
+// Check if the course exists
+if (mysqli_num_rows($result) > 0) {
+$row = mysqli_fetch_assoc($result);
+$courseTitle = $row['title'];
+$courseDescription = $row['description'];
+$teacher_id = $row['teacher_id'];
+// $videoURL = $row['video_url'];
+} else {
+echo "Course not found.";
+exit;
+}
+
+    $sql2 = "SELECT fullname FROM teacher WHERE teacher_id = '$teacher_id'";
+
+    $result2 = mysqli_query($conn, $sql2);
+
+    if (mysqli_num_rows($result2) > 0) {
+    $row = mysqli_fetch_assoc($result2);
+    $teacherName = $row['fullname'];
+    } else {
+    echo "No teacher found with that name";
+    }
+
+// Close the database connection
+mysqli_close($conn);
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,151 +48,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Preview</title>
+
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #D6BEEE;
-    }
+    <link rel="stylesheet" href="css/course-preview.css">
 
-    .header {
-        border-radius: 0 45px 45px 45px;
-        background: #491774;
-        color: #fff;
-        margin: 50px;
-    }
 
-    .header h1 {
-        margin: 0;
-        text-align: center;
-        padding-top: 40px;
-        padding-bottom: 20px;
-    }
-
-    .header p {
-        text-align: left;
-        color: #cea4fb;
-        padding-left: 120px;
-        padding-right: 120px;
-    }
-
-    .content {
-        margin: 100px;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    .content h2 {
-        color: #4f1f84;
-    }
-
-    .content p {
-        line-height: 1.6;
-    }
-
-    .enroll-button,
-    .save-course-button {
-        border-radius: 12px;
-        padding: 10px;
-        width: 220px;
-        /* Width */
-        height: 74px;
-        /* Height */
-        text-align: center;
-        background: #e08231;
-        color: #000000;
-        border: none;
-        cursor: pointer;
-        font-size: 30px;
-        margin-top: 20px;
-    }
-
-    .skills {
-        margin: 20px 0;
-        list-style: none;
-        padding: 0;
-    }
-
-    .skills li {
-        padding: 5px 0;
-    }
-
-    .skills li::before {
-        content: '✔';
-        margin-right: 10px;
-        color: #4caf50;
-    }
-
-    .tags {
-        text-align: left;
-        padding: 10px 0;
-    }
-
-    .tag {
-        display: inline-block;
-        background: #CBC3E3;
-        color: #492a6c;
-        padding: 5px 15px;
-        margin: 5px;
-        border-radius: 20px;
-        font-size: 14px;
-    }
-
-    .profile-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        gap: 10px;
-        padding: 20px;
-    }
-
-    .profile-photo {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: 2px solid #491774;
-    }
-
-    .instructor-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-right: 20px;
-        /* Add some space between instructor info and the button */
-    }
-
-    .instructor-info p,
-    .instructor-info p.name {
-        margin: 0;
-        padding: 0;
-        line-height: 1;
-    }
-
-    .enroll-button {
-        margin: 0 20px;
-        /* Add margin to both sides of the button */
-    }
-
-    .save-course-text {
-        color: #E08231;
-        cursor: pointer;
-        font-size: 18px;
-        text-align: right;
-        margin-left: 20px;
-        /* Add margin to the left side of the save course text */
-        margin-right: 0;
-        /* Remove margin from the right side */
-        white-space: nowrap;
-        /* Prevent wrapping of the save course text */
-    }
-    </style>
 </head>
 
 <body>
@@ -268,6 +184,54 @@
         </div>
     </nav>
 
+    <div class="container">
+
+        <!-- <div class=" header">
+        <h1>HTML5: an introduction</h1>
+        <p>Start your path to a career in HTML5. This program, you'll learn html5 basics in less than two weeks. No
+            degree or experience is required.</p>
+
+        <div class="profile-container">
+            <div class="instructor-info">
+                <img src="media/professor.jpg" alt="Instructor's Photo" class="profile-photo">
+                <p style="color: #f5f5f5;"><strong>Instructor:</strong></p>
+                <p class="name" style="color: #E08231;">Martin Fury</p>
+            </div>
+            <form action="./backend/enroll.php" method="POST">
+                <button name="enroll" type="submit" class=" enroll-button">Enroll</button>
+            </form>
+            <div class="save-course-text">Save<br>Course</div>
+        </div>
+
+    </div> -->
+        <h1 class="mb-5">Course Preview</h1>
+
+
+        <div class="header">
+            <h1><?php echo $courseTitle; ?></h1>
+            <p style="text-align:center; padding:20px;"><?php echo $courseDescription; ?>
+            </p>
+
+            <div class=" profile-container">
+
+
+                <img src="media/professor.jpg" alt="Instructor's Photo" class="profile-photo">
+
+                <div class="instructor-info">
+                    <p style="color: #f5f5f5; text-align:center; padding:0; "><strong>Instructor:</strong></p>
+                    <p class="name" style="color: #E08231; padding:0;"><?php echo $teacherName; ?></p>
+                </div>
+
+
+                <form action="./backend/enroll.php" method="POST">
+                    <button name="enroll" type="submit" class=" enroll-button">Enroll</button>
+                </form>
+            </div>
+            <!-- 
+                <p>Video URL: <a href="<?php echo $videoURL; ?>" target="_blank">Click here to watch</a></p> -->
+        </div>
+
+    </div>
 
     <!-- Categories -->
     <!-- <div class="container">
@@ -292,8 +256,7 @@
         </div>
     </div> -->
 
-
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="header">
             <h1>HTML5: an introduction</h1>
             <p>Start your path to a career in HTML5. This program, you'll learn html5 basics in less than two weeks. No
@@ -331,7 +294,7 @@
             <br><br>
             <h2>Course structure:</h2>
         </div>
-    </div>
+    </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

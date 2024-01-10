@@ -1,6 +1,6 @@
 body {
   background: #d6beee;
-  overflow: hidden !important;
+
 }
 
 * {
@@ -45,7 +45,23 @@ body {
   color: #f7f2fc;
 }
 
+.dropdown-item{
+  color: white;
+  text-decoration: none;
+}
 
+.dropdown-item:hover{
+  background-color: #492a6c;
+  color: white;
+}
+
+.text {
+  width: 250px;
+  height: 100px;
+
+  overflow: hidden;
+  text-overflow: ellipsis; /* This is where the magic happens. */
+}
 
 .menu-text{
   text-decoration: none;
