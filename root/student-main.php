@@ -55,11 +55,12 @@ include_once './backend/connect.php';
 
     <nav class="navbar sticky-top" style="background-color:#492a6c; border-radius: 50px; margin: 20px;">
         <div class="container-fluid">
-            <img src="./media/NeoLearnLogo.png" alt="logo" width="200">
-            <form action="./backend/search.php" method="GET" style="display: flex; gap: 18px;">
+            <div class="navbar-brand">
+            </div>
+            <form class="searchForm" action="./backend/search.php" method="GET" style="display: flex; gap: 18px;">
                 <input class="form-control" name="search" style=" border-radius: 25px; border: 1px solid #492a6c; "
                     type="search" placeholder="Search" aria-label="Search">
-                <button class="btn" name="search-submit"
+                <button class="btn searchbtn" name="search-submit"
                     style=" background-color: #492a6c; color: aliceblue; border-radius: 25px;" type="submit"><svg
                         style="width:30px; height:30px; " class=" text-purple-800 dark:text-purple" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -247,7 +248,7 @@ echo '<ul style="display:flex; gap:20px">';
         <h2 class="card-title" style="color: white; font-weight: 600; ">' . $courseTitle . '</h2>
         <div class="card-text text" style="font-family: "Epilogue"; font-size: 15px;">' . $courseDescription . '</div>
         
-        <div class="card-footer" style=" display: flex; flex-direction:row; justify-content: space-between; align-items:flex-end;">
+        <div class="card-footer" style=" ">
             
          <p>' . $fullname . '</p>         
          <a href="student-course.php?id=1"

@@ -56,11 +56,29 @@ body {
 }
 
 .text {
-  width: 250px;
+  width: 150px;
   height: 100px;
 
   overflow: hidden;
   text-overflow: ellipsis; /* This is where the magic happens. */
+}
+
+@media (max-width:600px){
+  .text{
+   display: none;
+  }
+
+  .card-footer{
+    flex-direction: column;
+  }
+}
+
+.card-footer{
+  display: flex; 
+  flex-direction:row; 
+  justify-content: 
+  space-between; 
+  align-items:flex-end;
 }
 
 .menu-text{
