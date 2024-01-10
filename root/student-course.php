@@ -1,5 +1,59 @@
 <?php
-    include 'backend/connect.php';
+// Get the course ID from the URL
+$courseId = 1;
+
+// Include the connect.php file to establish the database connection
+include_once './backend/connect.php';
+
+// Prepare SQL query to retrieve course details
+$query = "SELECT c.title, c.description, c.teacher_id, c.youtube_link FROM courses c WHERE c.course_id = $courseId";
+
+// Execute the query
+$result = mysqli_query($conn, $query);
+
+// Check if the course exists
+if (mysqli_num_rows($result) > 0) {
+$row = mysqli_fetch_assoc($result);
+$courseTitle = $row['title'];
+$courseDescription = $row['description'];
+$teacher_id = $row['teacher_id'];
+$videoURL = $row['youtube_link'];
+
+
+
+function generateYouTubeFrame($videoURL) {
+  // Extract the video ID from the URL
+  $videoID = preg_match('/watch\?v=(.*)/', $videoURL, $matches);
+
+  // Generate the iframe code
+  $iframeCode = '<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
+
+  return $iframeCode;
+}
+
+
+$iframeCode = generateYouTubeFrame($videoURL);
+
+
+
+} else {
+echo "Course not found.";
+exit;
+}
+
+    $sql2 = "SELECT fullname FROM teacher WHERE teacher_id = '$teacher_id'";
+
+    $result2 = mysqli_query($conn, $sql2);
+
+    if (mysqli_num_rows($result2) > 0) {
+    $row = mysqli_fetch_assoc($result2);
+    $teacherName = $row['fullname'];
+    } else {
+    echo "No teacher found with that name";
+    }
+
+// Close the database connection
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +80,8 @@
 
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/course-preview.css">
 
 
 </head>
@@ -120,34 +174,67 @@
     </nav>
 
 
-    <div class="container-fluid" style="background: white;"><?php if (isset($_POST['view-course'])) $sql="SELECT * FROM courses WHERE course_id = 0;";
-    $result=mysqli_query($conn, $sql);
+    <div class="container container1">
 
-    $resultCheck=mysqli_num_rows($result);
 
-    if ($resultCheck > 0) {
-        while($row=mysqli_fetch_array($result)) {
-            $title=$row['title'];
-            $description=$row['description'];
 
-            echo "<h1></h1> ".$title."";
-            echo "<p></p>".$description."";
-        }
-    }
 
-    mysqli_close($conn);
+        <div class="header">
+            <h1><?php echo $courseTitle; ?></h1>
+            <p style="text-align:center; padding:20px;"><?php echo $courseDescription; ?>
+            </p>
 
-    ?>
-        <div style="display: flex;">
-            <label for="profile-picture">Martin Furry</label>
-            <button>Enrolled</button>
-            <input type="submit" value="Save course">
+            <div class=" profile-container">
+
+
+                <img src="media/professor.jpg" alt="Instructor's Photo" class="profile-photo">
+
+                <div class="instructor-info">
+                    <p style="color: #f5f5f5; text-align:center; padding:0; "><strong>Instructor:</strong></p>
+                    <p class="name" style="color: #E08231; padding:0;"><?php echo $teacherName; ?></p>
+                </div>
+
+
+                <form>
+                    <button style="background-color:#4F9F33; color:white; " class=" enroll-button">Enrolled</button>
+                </form>
+
+                <div id="save">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="50"
+                        viewBox="0,0,256,256">
+                        <g fill="#cea4fb" fill-rule="nonzero" stroke="none" stroke-linecap="butt"
+                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <g transform="scale(5.33333,5.33333)">
+                                <path
+                                    d="M16.5,5c-3.57194,0 -6.5,2.92806 -6.5,6.5v30c0.00017,0.56293 0.31547,1.07839 0.81656,1.33491c0.50109,0.25652 1.10362,0.21091 1.56039,-0.11811l11.62305,-8.36914l11.62305,8.36914c0.45677,0.32902 1.0593,0.37463 1.56039,0.11811c0.50109,-0.25652 0.8164,-0.77198 0.81656,-1.33491v-30c0,-3.57194 -2.92806,-6.5 -6.5,-6.5zM16.5,8h15c1.95006,0 3.5,1.54994 3.5,3.5v27.07227l-10.12305,-7.28906c-0.52374,-0.37736 -1.23016,-0.37736 -1.75391,0l-10.12305,7.28906v-27.07227c0,-1.95006 1.54994,-3.5 3.5,-3.5z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                    <p class="saved" style="color:#E08231; padding-left:15px; ">Save</p>
+                </div>
+            </div>
+
+
+
         </div>
+
+    </div>
+
     </div>
     <div class="container " style="margin:50px; display:flex; flex-direction:column;">
         <h2 class="label" style="padding: left 40px; font-size:25px; color:">Lecture</h2>
-        <iframe src="https://www.youtube.com/embed/FQdaUv95mR8" frameborder="0" allowfullscreen class="video"></iframe>
+        <!-- <iframe src="https://www.youtube.com/embed/FQdaUv95mR8" frameborder="0" allowfullscreen class="video"></iframe> -->
+        <?php echo $iframeCode; ?>
+        <p>Video URL: <a href="<?php echo $videoURL; ?>" target="_blank">Click here to watch</a></p>
     </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

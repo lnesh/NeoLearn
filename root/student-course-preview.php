@@ -184,26 +184,9 @@ mysqli_close($conn);
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container container1">
 
-        <!-- <div class=" header">
-        <h1>HTML5: an introduction</h1>
-        <p>Start your path to a career in HTML5. This program, you'll learn html5 basics in less than two weeks. No
-            degree or experience is required.</p>
 
-        <div class="profile-container">
-            <div class="instructor-info">
-                <img src="media/professor.jpg" alt="Instructor's Photo" class="profile-photo">
-                <p style="color: #f5f5f5;"><strong>Instructor:</strong></p>
-                <p class="name" style="color: #E08231;">Martin Fury</p>
-            </div>
-            <form action="./backend/enroll.php" method="POST">
-                <button name="enroll" type="submit" class=" enroll-button">Enroll</button>
-            </form>
-            <div class="save-course-text">Save<br>Course</div>
-        </div>
-
-    </div> -->
         <h1 class="mb-5">Course Preview</h1>
 
 
@@ -226,6 +209,23 @@ mysqli_close($conn);
                 <form action="./backend/enroll.php" method="POST">
                     <button name="enroll" type="submit" class=" enroll-button">Enroll</button>
                 </form>
+
+                <div id="save">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="45"
+                        viewBox="0,0,256,256">
+                        <g fill="#cea4fb" fill-rule="nonzero" stroke="none" stroke-linecap="butt"
+                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <g transform="scale(5.33333,5.33333)">
+                                <path
+                                    d="M16.5,5c-3.57194,0 -6.5,2.92806 -6.5,6.5v30c0.00017,0.56293 0.31547,1.07839 0.81656,1.33491c0.50109,0.25652 1.10362,0.21091 1.56039,-0.11811l11.62305,-8.36914l11.62305,8.36914c0.45677,0.32902 1.0593,0.37463 1.56039,0.11811c0.50109,-0.25652 0.8164,-0.77198 0.81656,-1.33491v-30c0,-3.57194 -2.92806,-6.5 -6.5,-6.5zM16.5,8h15c1.95006,0 3.5,1.54994 3.5,3.5v27.07227l-10.12305,-7.28906c-0.52374,-0.37736 -1.23016,-0.37736 -1.75391,0l-10.12305,7.28906v-27.07227c0,-1.95006 1.54994,-3.5 3.5,-3.5z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                    <p class="saved" style="color:#E08231; padding-left:15px; ">Save</p>
+                </div>
             </div>
             <!-- 
                 <p>Video URL: <a href="<?php echo $videoURL; ?>" target="_blank">Click here to watch</a></p> -->
@@ -233,68 +233,7 @@ mysqli_close($conn);
 
     </div>
 
-    <!-- Categories -->
-    <!-- <div class="container">
-    
-        <div class=" col align-items-start" style="margin-top: 3%; display: flex; gap: 10px; ">
-    
-    
-            <button class="btn tag">Web Development</button>
-            <button class="btn tag">Javascript</button>
-            <button class="btn tag">HTML</button>
-            <button class="btn tag">Web Development</button>
-            <button class="btn tag">Javascript</button>
-            <button class="btn tag">HTML</button>
-            <button class="btn tag">Web Development</button>
-            <button class="btn tag">Javascript</button>
-            <button class="btn tag">HTML</button>
-    
-    
-            <a href="" style="text-decoration: none; color: #684689; padding-top: 2px; font-weight: 600;">See more
-                categories > </a>
-    
-        </div>
-    </div> -->
 
-    <!-- <div class="container-fluid">
-        <div class="header">
-            <h1>HTML5: an introduction</h1>
-            <p>Start your path to a career in HTML5. This program, you'll learn html5 basics in less than two weeks. No
-                degree or experience is required.</p>
-
-            <div class="profile-container">
-                <div class="instructor-info">
-                    <img src="media/professor.jpg" alt="Instructor's Photo" class="profile-photo">
-                    <p style="color: #f5f5f5;"><strong>Instructor:</strong></p>
-                    <p class="name" style="color: #E08231;">Martin Fury</p>
-                </div>
-                <form action="./backend/enroll.php" method="POST">
-                    <button name="enroll" type="submit" class=" enroll-button">Enroll</button>
-                </form>
-                <div class="save-course-text">Save<br>Course</div>
-            </div>
-
-        </div>
-
-
-        <div class="content">
-            <h2>What you will learn:</h2>
-            <ul class="skills">
-                <li>Recognize and use common HTML5 tags.</li>
-                <li>Compose HTML5 code that can create images and links.</li>
-                <li>Be aware of what an editor is and how to use one.</li>
-            </ul>
-            <br><br>
-            <h2>Skills you will gain:</h2>
-            <div class="tags">
-                <div class="tag">Web development</div>
-                <div class="tag">Object Oriented</div>
-                <div class="tag">Cyber Security</div>
-            </div>
-            <br><br>
-            <h2>Course structure:</h2>
-        </div>
-    </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
