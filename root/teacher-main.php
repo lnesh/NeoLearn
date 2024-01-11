@@ -5,7 +5,14 @@ session_start();
 if (!isset($_SESSION['mail'])) {
     header('Location: login.php');
 }
+
+// Include the connect.php file to establish the database connection
+include_once './backend/connect.php';
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -133,6 +140,86 @@ if (!isset($_SESSION['mail'])) {
             </div>
         </div>
     </nav>
+
+
+    <?php
+// Get the user ID from the current session
+$mail = "elonmusk@mail.com";
+
+
+$sql = "SELECT student_id FROM student WHERE mail = '$mail'";
+
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+$row = mysqli_fetch_assoc($result);
+$student_id = $row['student_id'];
+} else {
+echo "No student found with that email address";
+}
+
+// Prepare SQL query to retrieve the enrolled courses for the user
+$query = "SELECT c.title, c.description, c.teacher_id FROM courses c JOIN enrollments e ON c.course_id = e.course_id
+WHERE e.student_id = $student_id";
+
+// Execute the query
+$result1 = mysqli_query($conn, $query);
+
+// Check if the user has enrolled in any courses
+if (mysqli_num_rows($result1) > 0) {
+// Display the list of enrolled courses
+
+echo '<div class="container-fluid">';
+echo '<h1 style="padding:20px;">Created Courses</h1>';
+echo '<ul style="display:flex; gap:20px">';
+    while ($row = mysqli_fetch_assoc($result1)) {
+ 
+
+    $courseTitle = $row['title'];
+    $courseDescription = $row['description'];
+    $teacher_id = $row['teacher_id'];
+
+    $sql2 = "SELECT fullname FROM teacher WHERE teacher_id = '$teacher_id'";
+
+    $result2 = mysqli_query($conn, $sql2);
+
+    if (mysqli_num_rows($result2) > 0) {
+    $row = mysqli_fetch_assoc($result2);
+    $fullname = $row['fullname'];
+    } else {
+    echo "No teacher found with that name";
+    }
+    
+
+    echo '<div class="card card-item" style="width: 18rem;">
+        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
+        
+        <div class="card-body">
+        <h2 class="card-title" style="color: white; font-weight: 600; ">' . $courseTitle . '</h2>
+        <div class="card-text text" style="font-family: "Epilogue"; font-size: 15px;">' . $courseDescription . '</div>
+        
+        <div class="card-footer" style=" ">
+            
+         <p>' . $fullname . '</p>         
+         <a href="student-course.php?id=1"
+         style="text-decoration: none; color: #dabafc; padding-left: 3px;">Edit</a> 
+         </div>
+  
+        </div>
+ 
+        </div>';
+    }
+    echo '</ul>';
+    echo '</div>';
+} else {
+// No enrolled courses found
+echo '<h1 style="padding:50px;">You are not enrolled in any courses.</h1>';
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
+
 
 
 
