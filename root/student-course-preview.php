@@ -1,12 +1,14 @@
 <?php
 // Get the course ID from the URL
-$courseId = 1;
+$course_Id = $_GET['id'];
+
+
 
 // Include the connect.php file to establish the database connection
 include_once './backend/connect.php';
 
 // Prepare SQL query to retrieve course details
-$query = "SELECT c.title, c.description, c.teacher_id FROM courses c WHERE c.course_id = $courseId";
+$query = "SELECT c.title, c.description, c.teacher_id FROM courses c WHERE c.course_id = $course_Id";
 
 // Execute the query
 $result = mysqli_query($conn, $query);
@@ -19,7 +21,7 @@ $row = mysqli_fetch_assoc($result);
 $courseTitle = $row['title'];
 $courseDescription = $row['description'];
 $teacher_id = $row['teacher_id'];
-// $videoURL = $row['video_url'];
+
 } else {
 echo "Course not found.";
 exit;
