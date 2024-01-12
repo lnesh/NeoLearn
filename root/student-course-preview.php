@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['mail'])) {
+    header('Location: login.php');
+}
+?>
+
+<?php
 // Get the course ID from the URL
 $course_Id = $_GET['id'];
 
@@ -8,7 +16,7 @@ $course_Id = $_GET['id'];
 include_once './backend/connect.php';
 
 // Prepare SQL query to retrieve course details
-$query = "SELECT c.title, c.description, c.teacher_id FROM courses c WHERE c.course_id = $course_Id";
+$query = "SELECT c.course_id, c.title, c.description, c.teacher_id FROM courses c WHERE c.course_id = $course_Id";
 
 // Execute the query
 $result = mysqli_query($conn, $query);
@@ -210,9 +218,12 @@ mysqli_close($conn);
                 </div>
 
 
-                <form action="./backend/enroll.php" method="POST">
-                    <button name="enroll" type="submit" class=" enroll-button">Enroll</button>
-                </form>
+
+                <button name="enroll" type="submit" class=" enroll-button">
+                    <a style="text-decoration:none; color:white;"
+                        href="enroll.php?id=<?php echo $course_Id; ?>">Enroll</a>
+                </button>
+
 
                 <div id="save">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="45"
