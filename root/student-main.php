@@ -209,7 +209,7 @@ echo "No student found with that email address";
 }
 
 // Prepare SQL query to retrieve the enrolled courses for the user
-$query = "SELECT c.title, c.description, c.teacher_id FROM courses c JOIN enrollments e ON c.course_id = e.course_id
+$query = "SELECT c.course_id, c.title, c.description, c.teacher_id FROM courses c JOIN enrollments e ON c.course_id = e.course_id
 WHERE e.student_id = $student_id";
 
 // Execute the query
@@ -225,6 +225,7 @@ echo '<ul style="display:flex; gap:20px">';
     while ($row = mysqli_fetch_assoc($result1)) {
  
 
+    $course_id = $row['course_id'];
     $courseTitle = $row['title'];
     $courseDescription = $row['description'];
     $teacher_id = $row['teacher_id'];
@@ -251,7 +252,7 @@ echo '<ul style="display:flex; gap:20px">';
         <div class="card-footer" style=" ">
             
          <p>' . $fullname . '</p>         
-         <a href="student-course.php?id=1"
+         <a href="student-course.php?id='.$course_id.'"
          style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a> 
          </div>
   
