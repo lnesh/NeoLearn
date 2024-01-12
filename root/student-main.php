@@ -68,6 +68,29 @@ include_once './backend/connect.php';
                             d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg></button>
             </form>
+    
+            <div id="searchResults"></div>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $("#liveSearch").keyup(function(){
+                        var query = $(this).val();
+                        if (query != "") {
+                            $.ajax({
+                                url: './backend/live_search.php', // Ensure this path is correct
+                                method: 'GET',
+                                data: {search: query},
+                                success: function(data) {
+                                    $('#searchResults').html(data);
+                                }
+                            });
+                        } else {
+                            $('#searchResults').html("");
+                        }
+                    });
+                });
+            </script>
 
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle"
