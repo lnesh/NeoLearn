@@ -1,12 +1,13 @@
 <?php
-// Get the course ID from the URL
-$courseId = 1;
 
-// Include the connect.php file to establish the database connection
 include_once './backend/connect.php';
 
+$course_Id = $_GET['id'];
+
+
+
 // Prepare SQL query to retrieve course details
-$query = "SELECT c.title, c.description, c.teacher_id, c.youtube_link FROM courses c WHERE c.course_id = $courseId";
+$query = "SELECT c.course_id, c.title, c.description, c.teacher_id, c.youtube_link FROM courses c WHERE c.course_id = $course_Id";
 
 // Execute the query
 $result = mysqli_query($conn, $query);
