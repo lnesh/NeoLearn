@@ -52,13 +52,13 @@ include_once './backend/connect.php';
 <body>
 
 
-
+    <!-- Student navbar -->
     <nav class="navbar sticky-top" style="background-color:#492a6c; border-radius: 50px; margin: 20px;">
         <div class="container-fluid">
             <div class="navbar-brand">
             </div>
             <form class="searchForm" action="./backend/search.php" method="GET" style="display: flex; gap: 18px;">
-                <input class="form-control" name="search" style=" border-radius: 25px; border: 1px solid #492a6c; "
+                <input class="form-control fc" name="search" style=" border-radius: 25px; border: 1px solid #492a6c; "
                     type="search" placeholder="Search" aria-label="Search">
                 <button class="btn searchbtn" name="search-submit"
                     style=" background-color: #492a6c; color: aliceblue; border-radius: 25px;" type="submit"><svg

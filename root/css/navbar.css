@@ -36,14 +36,14 @@
   }
 }
 
-/* @media (max-width: 940px) {
-  .form-control {
+@media (max-width: 940px) {
+  .fc {
     width: 100px;
   }
 }
 
 @media (min-width: 900px) {
-  .form-control {
+  .fc {
     width: 320px;
   }
-} */
+}
