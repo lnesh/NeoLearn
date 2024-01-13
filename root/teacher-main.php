@@ -1,16 +1,16 @@
 <!-- //Πρόσβαση στο περιεχόμενο μόνο εφόσον έχει γίνει σύνδεση -->
-<?php
+<!-- <?php
 session_start();
 
 if (!isset($_SESSION['mail'])) {
     header('Location: login.php');
 }
 
+?> -->
+
+<?php
 // Include the connect.php file to establish the database connection
-include_once './backend/connect.php';
-
-
-?>
+ include_once './backend/connect.php' ; ?>
 
 
 
@@ -144,23 +144,24 @@ include_once './backend/connect.php';
 
     <?php
 // Get the user ID from the current session
-$mail = "elonmusk@mail.com";
+
+$mail = $_SESSION['mail'];
 
 
-$sql = "SELECT student_id FROM student WHERE mail = '$mail'";
+$sql = "SELECT teacher_id FROM teacher WHERE mail = '$mail'";
 
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
 $row = mysqli_fetch_assoc($result);
-$student_id = $row['student_id'];
+$teacher_id = $row['teacher_id'];
 } else {
-echo "No student found with that email address";
+echo "No teacher found with that email address";
 }
 
 // Prepare SQL query to retrieve the enrolled courses for the user
-$query = "SELECT c.title, c.description, c.teacher_id FROM courses c JOIN enrollments e ON c.course_id = e.course_id
-WHERE e.student_id = $student_id";
+$query = "SELECT c.course_id, c.title, c.description, c.teacher_id FROM courses c
+WHERE teacher_id = $teacher_id";
 
 // Execute the query
 $result1 = mysqli_query($conn, $query);
@@ -175,6 +176,7 @@ echo '<ul style="display:flex; gap:20px">';
     while ($row = mysqli_fetch_assoc($result1)) {
  
 
+    $course_id = $row['course_id'];
     $courseTitle = $row['title'];
     $courseDescription = $row['description'];
     $teacher_id = $row['teacher_id'];
@@ -201,7 +203,7 @@ echo '<ul style="display:flex; gap:20px">';
         <div class="card-footer" style=" ">
             
          <p>' . $fullname . '</p>         
-         <a href="student-course.php?id=1"
+         <a href="teacher-course-preview.php?id='.$course_id.'"
          style="text-decoration: none; color: #dabafc; padding-left: 3px;">Edit</a> 
          </div>
   
@@ -213,7 +215,7 @@ echo '<ul style="display:flex; gap:20px">';
     echo '</div>';
 } else {
 // No enrolled courses found
-echo '<h1 style="padding:50px;">You are not enrolled in any courses.</h1>';
+echo '<h1 style="padding:50px;">You have not created any courses.</h1>';
 }
 
 // Close the database connection
