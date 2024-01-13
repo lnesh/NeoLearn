@@ -201,7 +201,9 @@ echo '<ul style="display:flex; gap:20px">';
             
          <p>' . $fullname . '</p>         
          <a href="teacher-course-preview.php?id='.$course_id.'"
-         style="text-decoration: none; color: #dabafc; padding-left: 3px;">Edit</a> 
+         style="text-decoration: none; color: #dabafc; padding-left: 3px;">Edit</a>
+                  <a href="delete-course.php?id='.$course_id.'"
+         style="text-decoration: none; color: #dabafc; padding-left: 3px;">Delete</a> 
          </div>
   
         </div>
