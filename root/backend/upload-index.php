@@ -9,11 +9,11 @@
 
 <?php
 
-$files = scandir("uploads");
+$files = scandir("../uploads");
 for($a =2; $a < count($files); $a++) {
     ?>
     <p>
-        <a download="<?php echo $files[$a] ?>" href="uploads/<?php echo $files[$a] ?>"><?php echo $files[$a] ?></a>
+        <a download="<?php echo $files[$a] ?>" href="../uploads/<?php echo $files[$a] ?>"><?php echo $files[$a] ?></a>
     </p>
     <!-- <a href="delete.php?name=uploads/<?php echo $files[$a]; ?>" style="color: red;">Delete</a> -->
     <?php

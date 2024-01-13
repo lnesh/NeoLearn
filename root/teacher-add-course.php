@@ -31,7 +31,7 @@ if (!isset($_SESSION['mail'])) {
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">  
     <style>
     label {
         font-weight: 700;
@@ -188,13 +188,13 @@ if (!isset($_SESSION['mail'])) {
                 <label for="floatingInput">Course link</label>
             </div>
 
-            <form enctype="multipart/form-data" action="upload.php" method="post">
+            <form enctype="multipart/form-data" action="backend/upload.php" method="post">
                 <div class="input-group mb-3" style="color: #491774;">
                     <label class="input-group-text" style="font-weight: 700; background-color: #491774; color: white;"
                         for="inputGroupFile01">Course material files</label>
                     <input name="file" style="color: #492a6c;" type="file" class="form-control" id="inputGroupFile01">
+                    <input type="submit" value="Upload">
                 </div>
-                <input type="submit" value="Upload">
             </form>
 
 

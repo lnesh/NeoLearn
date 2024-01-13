@@ -36,10 +36,6 @@ if (!isset($_SESSION['mail'])) {
     mysqli_query($conn, "INSERT INTO courses VALUES(NULL, '$course_title', '$course_description', '$teacher_id', '$course_link')");
 
 
-
-    
-    
-    
     echo 'Succesfully added course.';
 
     
