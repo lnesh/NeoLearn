@@ -1,18 +1,60 @@
-<!-- //Πρόσβαση στο περιεχόμενο μόνο εφόσον έχει γίνει σύνδεση -->
-<!-- <?php
+<?php
 session_start();
 
 if (!isset($_SESSION['mail'])) {
     header('Location: login.php');
 }
-
-?> -->
+?>
 
 <?php
+    include 'backend/connect.php';
+
+// Get the course ID from the URL
+$course_Id = $_GET['id'];
+
+
+
 // Include the connect.php file to establish the database connection
- include_once './backend/connect.php' ; ?>
+include_once './backend/connect.php';
+
+// Prepare SQL query to retrieve course details
+$query = "SELECT c.course_id, c.title, c.description, c.youtube_link, c.teacher_id FROM courses c WHERE c.course_id = $course_Id";
+
+// Execute the query
+$result = mysqli_query($conn, $query);
+
+// Check if the course exists
+if (mysqli_num_rows($result) > 0) {
+$row = mysqli_fetch_assoc($result);
 
 
+$courseTitle = $row['title'];
+$courseDescription = $row['description'];
+$courseLink = $row['youtube_link'];
+$teacher_id = $row['teacher_id'];
+
+} else {
+echo "Course not found.";
+exit;
+}
+
+    $sql2 = "SELECT fullname FROM teacher WHERE teacher_id = '$teacher_id'";
+
+    $result2 = mysqli_query($conn, $sql2);
+
+    if (mysqli_num_rows($result2) > 0) {
+    $row = mysqli_fetch_assoc($result2);
+    $teacherName = $row['fullname'];
+    } else {
+    echo "No teacher found with that name";
+    }
+
+
+
+// Close the database connection
+mysqli_close($conn);
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +62,7 @@ if (!isset($_SESSION['mail'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neolearn: Dashboard</title>
+    <title name="title">Course view</title>
 
     <!-- Favicon SEO -->
     <link rel="icon" href="media/favicon.ico" type="image/icon" />
@@ -38,12 +80,14 @@ if (!isset($_SESSION['mail'])) {
 
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/navbar.css">
+
 
 </head>
 
-
 <body>
+
 
     <!-- Teacher navbar -->
     <nav class="navbar sticky-top" style="background-color:#492a6c; border-radius: 50px; margin: 20px;">
@@ -129,7 +173,7 @@ if (!isset($_SESSION['mail'])) {
 
 
                             <ul class="dropdown-menu" style="background-color:black;">
-                                <li><a class="dropdown-item" href="teacher-profile.php">View profile</a></li>
+                                <li><a class="dropdown-item" href="#">View profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -146,105 +190,75 @@ if (!isset($_SESSION['mail'])) {
         </div>
     </nav>
 
+    <div class="container-fluid" style="width:40%;  ">
+        <h1
+            style="height: 100px;  background-color: #491774; color: white; text-align: center; padding-top: 25px; border-radius: 35px; border-top-left-radius: 0px; font-family: 'Epilogue', sans-serif;">
+            Edit course</h1>
+    </div>
 
-    <?php
-// Get the user ID from the current session
+    <form action="./backend/update-course.php" method="POST">
+        <div class="container-fluid" style="width:70%; margin-top: 30px;">
 
-$mail = $_SESSION['mail'];
+            <h2>Course Info</h2>
+            <div class="form-floating mb-3">
+
+                <input type="text" name="course_title" class="form-control " id="floatingInput" placeholder=""
+                    value="<?php echo $courseTitle ?>">
+                <!-- <label for="floatingInput"><?php echo $courseTitle ?> -->
+
+            </div>
+
+            <div class="form-floating mb-3">
+                <textarea type="text" name="description" class="form-control" id="floatingInput"
+                    placeholder=""><?php echo $courseDescription ?></textarea>
+                <!-- <label for="floatingInput"><?php echo $courseDescription ?>
+                </label> -->
+            </div>
+
+            <div class="input-group mb-3" style="color: #491774;">
+                <label class="input-group-text" style="font-weight: 700; background-color: #491774; color: white;"
+                    for="inputGroupFile01">Preview image</label>
+                <input style="color: #492a6c;" type="file" class="form-control" id="inputGroupFile01">
+            </div>
 
 
-$sql = "SELECT teacher_id FROM teacher WHERE mail = '$mail'";
+            <br>
+            <h2>Course Material</h2>
+            <div class="form-floating mb-3">
+                <input type="text" name="course_link" class="form-control" id="floatingInput" placeholder=""
+                    value="<?php echo $courseLink ?>">
+                <!-- <label for=" floatingInput"><span>
+                        <?php echo $courseLink ?></span>
+                </label> -->
+            </div>
 
-$result = mysqli_query($conn, $sql);
+            <div class="input-group mb-3" style="color: #491774;">
+                <label class="input-group-text" style="font-weight: 700; background-color: #491774; color: white;"
+                    for="inputGroupFile01">Course material files</label>
+                <input style="color: #492a6c;" type="file" class="form-control" id="inputGroupFile01">
+            </div>
 
-if (mysqli_num_rows($result) > 0) {
-$row = mysqli_fetch_assoc($result);
-$teacher_id = $row['teacher_id'];
-} else {
-echo "No teacher found with that email address";
-}
+            <div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 30px; ">
 
-// Prepare SQL query to retrieve the enrolled courses for the user
-$query = "SELECT c.course_id, c.title, c.description, c.teacher_id FROM courses c
-WHERE teacher_id = $teacher_id";
 
-// Execute the query
-$result1 = mysqli_query($conn, $query);
+                <input type="submit" name="save" id="addCourse" value="Save" style="width: 250px; height: 50px; border: none; border-radius: 20px; background-color: #491774; color:
+                white; font-weight: 700; font-size: 30px;">
 
-// Check if the user has enrolled in any courses
-if (mysqli_num_rows($result1) > 0) {
-// Display the list of enrolled courses
 
-echo '<div class="container-fluid">';
-echo '<h1 style="padding:20px;">Created Courses</h1>';
-echo '<ul style="display:flex; gap:20px">';
-    while ($row = mysqli_fetch_assoc($result1)) {
- 
+                <input type="hidden" name="course_id" value="<?php echo $course_Id ?>">
+                <input type="hidden" name="teacher_id" value="<?php echo $teacher_id ?>">
 
-    $course_id = $row['course_id'];
-    $courseTitle = $row['title'];
-    $courseDescription = $row['description'];
-    $teacher_id = $row['teacher_id'];
+            </div>
 
-    $sql2 = "SELECT fullname FROM teacher WHERE teacher_id = '$teacher_id'";
 
-    $result2 = mysqli_query($conn, $sql2);
-
-    if (mysqli_num_rows($result2) > 0) {
-    $row = mysqli_fetch_assoc($result2);
-    $fullname = $row['fullname'];
-    } else {
-    echo "No teacher found with that name";
-    }
-    
-
-    echo '<div class="card card-item" style="width: 18rem;">
-        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
-        
-        <div class="card-body">
-        <h2 class="card-title" style="color: white; font-weight: 600; ">' . $courseTitle . '</h2>
-        <div class="card-text text" style="font-family: "Epilogue"; font-size: 15px;">' . $courseDescription . '</div>
-        
-        <div class="card-footer" style=" ">
-            
-         <p>' . $fullname . '</p>         
-         <a href="teacher-course-preview.php?id='.$course_id.'"
-         style="text-decoration: none; color: #dabafc; padding-left: 3px;">Edit</a>
-                  <a href="delete-course.php?id='.$course_id.'"
-         style="text-decoration: none; color: #dabafc; padding-left: 3px;">Delete</a> 
-         </div>
-  
-        </div>
- 
-        </div>';
-    }
-    echo '</ul>';
-    echo '</div>';
-} else {
-// No enrolled courses found
-echo '<h1 style="padding:50px;">You have not created any courses.</h1>';
-}
-
-// Close the database connection
-mysqli_close($conn);
-?>
+    </form>
 
 
 
-
-
-
-    <footer style="height: 20vh; display: flex; justify-content: center; align-items: end; margin: 20px;">
-        Copyright 2024. All rights reserved.
-    </footer>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
-
+    <div class="container " style="margin:50px; display:flex; flex-direction:column;">
+        <h2 class="label" style="padding: left 40px; font-size:25px; color:">Lecture</h2>
+        <iframe src="https://www.youtube.com/embed/FQdaUv95mR8" frameborder="0" allowfullscreen class="video"></iframe>
+    </div>
 </body>
 
 </html>

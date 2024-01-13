@@ -5,6 +5,8 @@ require('connect.php'); //το αρχείο όπου καθορίσαμε τη �
 $mail = $_POST['mail'];
 $password = $_POST['password'];
 
+
+
 if(isset($_POST['student-login'])){
 	if($mail && $password){
 		$check = mysqli_query($conn,"SELECT * FROM student WHERE mail='".$mail."'");

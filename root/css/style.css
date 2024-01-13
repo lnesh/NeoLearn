@@ -15,14 +15,14 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  /* For mobile phones: */
+
   [class*="bg-img"] {
     height: 90vh;
   }
 }
 
 @media only screen and (max-width: 425px) {
-  /* For mobile phones: */
+
   [class*="bg-img"] {
     width: 0;
   }
@@ -81,12 +81,15 @@ body {
   color: #5a2d89;
   font-weight: 500;
   font-family: "Epilogue", sans-serif;
+  padding-left: 15px;
 }
 
 .p2 {
   color: #d6cae2;
   font-weight: 500;
   font-family: "Epilogue", sans-serif;
+  width: 800px;
+  padding-left: 15px;
 }
 
 @media screen and (max-width: 425px) {

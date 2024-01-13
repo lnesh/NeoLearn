@@ -1,5 +1,68 @@
 <?php
-    include 'backend/connect.php';
+session_start();
+
+if (!isset($_SESSION['mail'])) {
+    header('Location: login.php');
+}
+?>
+
+<?php
+
+include_once './backend/connect.php';
+
+$course_Id = $_GET['id'];
+
+
+
+// Prepare SQL query to retrieve course details
+$query = "SELECT c.course_id, c.title, c.description, c.teacher_id, c.youtube_link FROM courses c WHERE c.course_id = $course_Id";
+
+// Execute the query
+$result = mysqli_query($conn, $query);
+
+// Check if the course exists
+if (mysqli_num_rows($result) > 0) {
+$row = mysqli_fetch_assoc($result);
+$courseTitle = $row['title'];
+$courseDescription = $row['description'];
+$teacher_id = $row['teacher_id'];
+$videoURL = $row['youtube_link'];
+
+
+
+function generateYouTubeFrame($videoURL) {
+  // Extract the video ID from the URL
+  $videoID = preg_match('/watch\?v=(.*)/', $videoURL, $matches);
+
+  // Generate the iframe code
+  $iframeCode = '<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
+
+  return $iframeCode;
+}
+
+
+$iframeCode = generateYouTubeFrame($videoURL);
+
+
+
+} else {
+echo "Course not found.";
+exit;
+}
+
+    $sql2 = "SELECT fullname FROM teacher WHERE teacher_id = '$teacher_id'";
+
+    $result2 = mysqli_query($conn, $sql2);
+
+    if (mysqli_num_rows($result2) > 0) {
+    $row = mysqli_fetch_assoc($result2);
+    $teacherName = $row['fullname'];
+    } else {
+    echo "No teacher found with that name";
+    }
+
+// Close the database connection
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -8,9 +71,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title name="title">Document</title>
+    <title name="title">Course view</title>
 
-     <!-- Favicon SEO -->
+    <!-- Favicon SEO -->
     <link rel="icon" href="media/favicon.ico" type="image/icon" />
 
     <!-- Font -->
@@ -26,26 +89,63 @@
 
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/course-preview.css">
+
+
 </head>
 
 <body>
-     <nav class="navbar sticky-top" style="background-color:#492a6c; border-radius: 50px; margin: 20px;">
+
+    <!-- Student navbar -->
+    <nav class="navbar sticky-top" style="background-color:#492a6c; border-radius: 50px; margin: 20px;">
         <div class="container-fluid">
-            <img src="./media/NeoLearnLogo.png" alt="logo" width="200">
-            <form style="display: flex; gap: 18px;">
-                <input class="form-control" style="min-width: 300px; border-radius: 25px; border: 1px solid #492a6c; "
+            <div class="navbar-brand">
+            </div>
+            <form class="searchForm" action="./backend/search.php" method="GET" style="display: flex; gap: 18px;">
+                <input class="form-control fc" name="search" style=" border-radius: 25px; border: 1px solid #492a6c; "
                     type="search" placeholder="Search" aria-label="Search">
-                <button class="btn"
-                    style="width: 100px; background-color: #492a6c; color: aliceblue; border-radius: 25px;"
-                    type="submit">Search</button>
+                <button class="btn searchbtn" name="search-submit"
+                    style=" background-color: #492a6c; color: aliceblue; border-radius: 25px;" type="submit"><svg
+                        style="width:30px; height:30px; " class=" text-purple-800 dark:text-purple" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                    </svg></button>
             </form>
+
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle"
+                    style="background-color:white; color:purple; border: solid 3px;" href="#" role="button"
+                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categories
+                </a>
+
+                <ul class="dropdown-menu" style="background-color:purple; color:white;"
+                    aria-labelledby="dropdownMenuLink">
+                    <li class="dropdown-li"> <a class="dropdown-item" href="#">HTML</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">PHP</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">Javascript</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">Java</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">React</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">JQuery</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">CSS</a></li>
+                    <li class="dropdown-li"><a class="dropdown-item" href="#">Bootstrap</a></li>
+
+
+
+                </ul>
+            </div>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
                 <svg fill="#EDF" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
                         d="M20,22 C18.8954305,22 18,21.1045695 18,20 C18,18.8954305 18.8954305,18 20,18 C21.1045695,18 22,18.8954305 22,20 C22,21.1045695 21.1045695,22 20,22 Z M20,14 C18.8954305,14 18,13.1045695 18,12 C18,10.8954305 18.8954305,10 20,10 C21.1045695,10 22,10.8954305 22,12 C22,13.1045695 21.1045695,14 20,14 Z M20,6 C18.8954305,6 18,5.1045695 18,4 C18,2.8954305 18.8954305,2 20,2 C21.1045695,2 22,2.8954305 22,4 C22,5.1045695 21.1045695,6 20,6 Z M12,22 C10.8954305,22 10,21.1045695 10,20 C10,18.8954305 10.8954305,18 12,18 C13.1045695,18 14,18.8954305 14,20 C14,21.1045695 13.1045695,22 12,22 Z M12,14 C10.8954305,14 10,13.1045695 10,12 C10,10.8954305 10.8954305,10 12,10 C13.1045695,10 14,10.8954305 14,12 C14,13.1045695 13.1045695,14 12,14 Z M12,6 C10.8954305,6 10,5.1045695 10,4 C10,2.8954305 10.8954305,2 12,2 C13.1045695,2 14,2.8954305 14,4 C14,5.1045695 13.1045695,6 12,6 Z M4,22 C2.8954305,22 2,21.1045695 2,20 C2,18.8954305 2.8954305,18 4,18 C5.1045695,18 6,18.8954305 6,20 C6,21.1045695 5.1045695,22 4,22 Z M4,14 C2.8954305,14 2,13.1045695 2,12 C2,10.8954305 2.8954305,10 4,10 C5.1045695,10 6,10.8954305 6,12 C6,13.1045695 5.1045695,14 4,14 Z M4,6 C2.8954305,6 2,5.1045695 2,4 C2,2.8954305 2.8954305,2 4,2 C5.1045695,2 6,2.8954305 6,4 C6,5.1045695 5.1045695,6 4,6 Z" />
                 </svg>
             </button>
+
+
+
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header" style="background-color: #492a6c">
@@ -81,7 +181,8 @@
                         <li class="nav-item">
                             <a href="#instructors" class="nav-link menu-text">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" fill="#EDF"
-                                    viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                                    viewBox="0 0 640 512">
+                                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
                                     <path
                                         d="M160 64c0-35.3 28.7-64 64-64H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H336.8c-11.8-25.5-29.9-47.5-52.4-64H384V320c0-17.7 14.3-32 32-32h64c17.7 0 32 14.3 32 32v32h64V64L224 64v49.1C205.2 102.2 183.3 96 160 96V64zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352h53.3C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7H26.7C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z" />
                                 </svg><span class=" ms-4 d-none d-sm-inline ">Instructors</span>
@@ -112,19 +213,21 @@
                         </li>
 
                         <li class="nav-item dropdown" style="align-items: end;">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" style="text-decoration:none; color:white;" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Profile
                             </a>
 
 
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="background-color:black;">
                                 <li><a class="dropdown-item" href="#">View profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Log out</a></li>
+                                <form action="./backend/logout.php">
+                                    <li><input type="submit" class="dropdown-item" value="Logout"></li>
+                                </form>
                             </ul>
                         </li>
                     </ul>
@@ -134,44 +237,68 @@
         </div>
     </nav>
 
-    <div class="container-fluid" style="background: white;">
 
-    <?php
+    <div class="container container1">
 
-    if (isset($_POST['view-course']))
-    $sql = "SELECT * FROM courses WHERE course_id = 0;";
-    $result = mysqli_query($conn, $sql);
 
-    $resultCheck = mysqli_num_rows($result);
 
-    if ($resultCheck > 0){
-        while($row = mysqli_fetch_array($result)){
-            $title = $row['title'];
-            $description = $row['description'];
-            
-            echo "<h1></h1> ".$title."";
-            echo "<p></p>" .$description."";
-        }
-    }
 
-    mysqli_close($conn); 
+        <div class="header">
+            <h1><?php echo $courseTitle; ?></h1>
+            <p style="text-align:center; padding:20px;"><?php echo $courseDescription; ?>
+            </p>
 
-    ?>
+            <div class=" profile-container">
 
-    <div style="display: flex;">
-        <label for="profile-picture">Martin Furry</label>
-        <button>Enrolled</button>
-        <input type="submit" value="Save course">
+
+                <img src="media/professor.jpg" alt="Instructor's Photo" class="profile-photo">
+
+                <div class="instructor-info">
+                    <p style="color: #f5f5f5; text-align:center; padding:0; "><strong>Instructor:</strong></p>
+                    <p class="name" style="color: #E08231; padding:0;"><?php echo $teacherName; ?></p>
+                </div>
+
+
+                <form>
+                    <button style="background-color:#4F9F33; color:white; " class=" enroll-button">Enrolled</button>
+                </form>
+
+                <div id="save">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="50"
+                        viewBox="0,0,256,256">
+                        <g fill="#cea4fb" fill-rule="nonzero" stroke="none" stroke-linecap="butt"
+                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <g transform="scale(5.33333,5.33333)">
+                                <path
+                                    d="M16.5,5c-3.57194,0 -6.5,2.92806 -6.5,6.5v30c0.00017,0.56293 0.31547,1.07839 0.81656,1.33491c0.50109,0.25652 1.10362,0.21091 1.56039,-0.11811l11.62305,-8.36914l11.62305,8.36914c0.45677,0.32902 1.0593,0.37463 1.56039,0.11811c0.50109,-0.25652 0.8164,-0.77198 0.81656,-1.33491v-30c0,-3.57194 -2.92806,-6.5 -6.5,-6.5zM16.5,8h15c1.95006,0 3.5,1.54994 3.5,3.5v27.07227l-10.12305,-7.28906c-0.52374,-0.37736 -1.23016,-0.37736 -1.75391,0l-10.12305,7.28906v-27.07227c0,-1.95006 1.54994,-3.5 3.5,-3.5z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                    <p class="saved" style="color:#E08231; padding-left:15px; ">Save</p>
+                </div>
+            </div>
+
+
+
+        </div>
+
     </div>
-    </div>
 
+    </div>
     <div class="container " style="margin:50px; display:flex; flex-direction:column;">
-    <h2 class="label" style="padding: left 40px; font-size:25px; color:">Lecture</h2>
-  
-    <iframe src="https://www.youtube.com/embed/FQdaUv95mR8" frameborder="0" allowfullscreen class="video" ></iframe>
+        <h2 class="label" style="padding: left 40px; font-size:25px; color:">Lecture</h2>
+        <!-- <iframe src="https://www.youtube.com/embed/FQdaUv95mR8" frameborder="0" allowfullscreen class="video"></iframe> -->
+        <?php echo $iframeCode; ?>
+        <p>Video URL: <a href="<?php echo $videoURL; ?>" target="_blank">Click here to watch</a></p>
     </div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

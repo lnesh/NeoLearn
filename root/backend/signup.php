@@ -16,7 +16,7 @@ include('./connect.php');
 
         mysqli_query($conn, "INSERT INTO student VALUES(NULL, '$fullname', '$username', '$mail', '$password')");
 		if(mysqli_affected_rows($conn) ==1) {
-		echo "<font color =green size =14>Επιτυχής Υποβολή! :)</font><br />";
+		header ("Location: ../student-main.php");
         
 		}
 		else {
@@ -37,8 +37,7 @@ include('./connect.php');
 
         mysqli_query($conn, "INSERT INTO teacher VALUES(NULL, '$fullname', '$username', '$mail', '$password','$profession', '$bio')");
 		if(mysqli_affected_rows($conn) ==1) {
-		echo "<font color =green size =14>Επιτυχής Υποβολή! :)</font><br />";
-        
+		header ("Location: ../teacher-main.php");
 		}
 		else {
 		echo "<font color =red size =14>Αποτυχία Υποβολής :(</font> <br />";

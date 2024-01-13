@@ -1,6 +1,6 @@
 body {
   background: #d6beee;
-  overflow: hidden !important;
+
 }
 
 * {
@@ -45,7 +45,41 @@ body {
   color: #f7f2fc;
 }
 
+.dropdown-item{
+  color: white;
+  text-decoration: none;
+}
 
+.dropdown-item:hover{
+  background-color: #492a6c;
+  color: white;
+}
+
+.text {
+  width: 250px;
+  height: 100px;
+
+  overflow: hidden;
+  text-overflow: ellipsis; /* This is where the magic happens. */
+}
+
+@media (max-width:600px){
+  .text{
+   display: none;
+  }
+
+  .card-footer{
+    flex-direction: column;
+  }
+}
+
+.card-footer{
+  display: flex; 
+  flex-direction:row; 
+  justify-content: 
+  space-between; 
+  align-items:flex-end;
+}
 
 .menu-text{
   text-decoration: none;

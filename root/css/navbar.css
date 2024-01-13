@@ -1,0 +1,49 @@
+.searchForm {
+  display: flex;
+  gap: 18px;
+}
+
+.navbar-brand {
+  background-image: url("../media/NeoLearnLogo.png");
+  background-size: contain;
+  height: 100px;
+  width: 250px;
+}
+
+@media (max-width: 600px) {
+  .btn-secondary {
+    width: 90px;
+    height: 30px;
+    font-size: 10px;
+  }
+
+  
+}
+
+@media (max-width: 500px) {
+  .searchbtn {
+    display: none;
+  }
+}
+
+@media (max-width: 668px) {
+  .navbar-brand {
+    background-image: url("../media/favicon.ico");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 940px) {
+  .fc {
+    width: 100px;
+  }
+}
+
+@media (min-width: 900px) {
+  .fc {
+    width: 320px;
+  }
+}
