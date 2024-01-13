@@ -179,10 +179,7 @@ if (!isset($_SESSION['mail'])) {
                 <input style="color: #492a6c;" type="file" class="form-control" id="inputGroupFile01">
             </div>
 
-            <div class="form-floating mb-3">
-                <input type="text" name="skills" class="form-control" id="floatingInput" placeholder=""></textarea>
-                <label for="floatingInput">Skills aquired with this course</label>
-            </div>
+
 
             <br>
             <h2>Course Material</h2>
