@@ -44,7 +44,7 @@ if (mysqli_num_rows($result) > 0) {
     
 } else {
     // Prepare the SQL query to enroll the student in the course
-    $query = "INSERT INTO enrollments (student_id, course_id) VALUES ($student_Id, $course_Id)";
+    $query = "INSERT INTO enrollments  VALUES ( $course_Id,$student_Id)";
 
     // Execute the query
     $result = mysqli_query($conn, $query);

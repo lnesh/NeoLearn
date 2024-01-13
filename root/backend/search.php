@@ -35,6 +35,7 @@ echo '<h2 style="text-align:center; padding:50px; font-weight:600;">Search Resul
 echo '<div class="container-fluid">';
 echo '<ul style="display:flex; gap:20px">';
         while ($row = mysqli_fetch_assoc($results)) {
+        $course_id = $row['course_id'];
         $courseTitle = $row['title'];
         $courseDescription = $row['description'];
 
@@ -57,7 +58,7 @@ echo '<link rel="stylesheet" href="../css/main.css">';
                             style=" display: flex; flex-direction:row; justify-content: center; align-items:flex-end; background-color:black; border-radius: 25px;">
 
 
-                            <a href="../student-course-preview.php?id=1"
+                            <a href="../student-course-preview.php?id='.$course_id.'"
                                 style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a>
                         </div>
 
