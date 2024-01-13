@@ -42,6 +42,8 @@ include_once './backend/connect.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
@@ -70,7 +72,7 @@ include_once './backend/connect.php';
             </form>
 
             <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle"
+                <a id="card" class="btn  btn-secondary dropdown-toggle"
                     style="background-color:white; color:purple; border: solid 3px;" href="#" role="button"
                     id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     Categories
@@ -242,7 +244,7 @@ echo '<ul style="display:flex; gap:20px">';
     }
     
 
-    echo '<div class="card card-item" style="width: 18rem;">
+    echo '<div id="card" class="card card-item" style="width: 18rem; cursor:pointer;">
         <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
         
         <div class="card-body">
@@ -262,6 +264,8 @@ echo '<ul style="display:flex; gap:20px">';
     }
     echo '</ul>';
     echo '</div>';
+
+    
 } else {
 // No enrolled courses found
 echo '<h1 style="padding:50px;">You are not enrolled in any courses.</h1>';
@@ -277,7 +281,13 @@ mysqli_close($conn);
         Copyright 2024. All rights reserved.
     </footer>
 
-
+    <script>
+    $(document).ready(function() {
+        $('#card').click(function() {
+            $(this).css('background-color', '#007bff');
+        });
+    });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
