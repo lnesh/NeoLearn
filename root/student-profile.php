@@ -2,31 +2,44 @@
 session_start();
 
 if (!isset($_SESSION['mail'])) {
-    header('Location: login.php');
+  header('Location: login.php');
 }
 ?>
 
 <?php
-// Include the connect.php file to establish the database connection
-include_once './backend/connect.php';
+
+include 'backend/connect.php';
+
+$mail = $_SESSION['mail'];
+
+$sql = "SELECT student_id, fullname, username, mail FROM student WHERE mail = '$mail'";
+
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+
+while ($row = mysqli_fetch_assoc($result)){
+$student_id = $row['student_id'];
+$fullname = $row['fullname'];
+$username = $row['username'];
+$mail = $row['mail'];
+}
+
+} else {
+echo "No student found with that email address";
+}
+
 
 ?>
-
 
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-
-    <!-- Meta title SEO -->
-    <title>
-        NeoLearn: Dashboard
-    </title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title name="title">Edit your profile</title>
 
     <!-- Favicon SEO -->
     <link rel="icon" href="media/favicon.ico" type="image/icon" />
@@ -42,17 +55,15 @@ include_once './backend/connect.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/carousel.css">
     <link rel="stylesheet" href="css/navbar.css">
 
 
 </head>
 
 <body>
-
 
     <!-- Student navbar -->
     <nav class="navbar sticky-top" style="background-color:#492a6c; border-radius: 50px; margin: 20px;">
@@ -125,6 +136,15 @@ include_once './backend/connect.php';
                                     style="font-size: 25px; padding-top: 10px; padding-right: 35px;">Home</span></a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="#courses" class="nav-link menu-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#EDF"
+                                    class="bi bi-book" viewBox="0 0 16 16">
+                                    <path
+                                        d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+                                </svg><span class="ms-4 d-none d-sm-inline">My courses</span>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="#instructors" class="nav-link menu-text">
@@ -168,7 +188,7 @@ include_once './backend/connect.php';
 
 
                             <ul class="dropdown-menu" style="background-color:black;">
-                                <li><a class="dropdown-item" href="student-profile.php">View profile</a></li>
+                                <li><a class="dropdown-item" href="#">View profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -185,104 +205,57 @@ include_once './backend/connect.php';
         </div>
     </nav>
 
-    <?php
-// Get the user ID from the current session
-$mail = $_SESSION['mail'];
+    <div class="container-fluid" style="width:40%;  ">
+        <h1
+            style="height: 100px;  background-color: #491774; color: white; text-align: center; padding-top: 25px; border-radius: 35px; border-top-left-radius: 0px; font-family: 'Epilogue', sans-serif;">
+            Edit your profile</h1>
+    </div>
+
+    <form action="./backend/update-profile.php" method="POST">
+        <div class="container-fluid" style="width:70%; margin-top: 30px;">
+
+            <h2>Your Info</h2>
+            <div class="form-floating mb-3">
+
+                <input type="text" name="fullname" class="form-control " id="floatingInput" placeholder=""
+                    value="<?php echo $fullname ?>">
+                <label for="floatingInput">Full name</label>
+
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" name="username" class="form-control" id="floatingInput" placeholder=""
+                    value="<?php echo $username ?>">
+
+                <label for="floatingInput">Username
+                </label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" name="mail" class="form-control" id="floatingInput" placeholder=""
+                    value="<?php echo $mail ?>">
+                <label for=" floatingInput">E-mail
+                </label>
+            </div>
+
+            <div class="input-group mb-3" style="color: #491774;">
+                <label class="input-group-text" style="font-weight: 700; background-color: #491774; color: white;"
+                    for="inputGroupFile01">Profile image</label>
+                <input style="color: #492a6c;" type="file" class="form-control" id="inputGroupFile01">
+            </div>
 
 
-$sql = "SELECT student_id FROM student WHERE mail = '$mail'";
-
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-$row = mysqli_fetch_assoc($result);
-$student_id = $row['student_id'];
-} else {
-echo "No student found with that email address";
-}
-
-// Prepare SQL query to retrieve the enrolled courses for the user
-$query = "SELECT c.course_id, c.title, c.description, c.teacher_id FROM courses c JOIN enrollments e ON c.course_id = e.course_id
-WHERE e.student_id = $student_id";
-
-// Execute the query
-$result1 = mysqli_query($conn, $query);
-
-// Check if the user has enrolled in any courses
-if (mysqli_num_rows($result1) > 0) {
-// Display the list of enrolled courses
-
-echo '<div class="container-fluid">';
-echo '<h1 style="padding:20px;">Enrolled Courses</h1>';
-echo '<ul style="display:flex; gap:20px">';
-    while ($row = mysqli_fetch_assoc($result1)) {
- 
-
-    $course_id = $row['course_id'];
-    $courseTitle = $row['title'];
-    $courseDescription = $row['description'];
-    $teacher_id = $row['teacher_id'];
-
-    $sql2 = "SELECT fullname FROM teacher WHERE teacher_id = '$teacher_id'";
-
-    $result2 = mysqli_query($conn, $sql2);
-
-    if (mysqli_num_rows($result2) > 0) {
-    $row = mysqli_fetch_assoc($result2);
-    $fullname = $row['fullname'];
-    } else {
-    echo "No teacher found with that name";
-    }
-    
-
-    echo '<div id="card" class="card card-item" style="width: 18rem; cursor:pointer;">
-        <img src="./media/html-system-website-concept.jpg" class="card-img-top card-img" alt="...">
-        
-        <div class="card-body">
-        <h2 class="card-title" style="color: white; font-weight: 600; ">' . $courseTitle . '</h2>
-        <div class="card-text text" style="font-family: "Epilogue"; font-size: 15px;">' . $courseDescription . '</div>
-        
-        <div class="card-footer" style=" ">
-            
-         <p>' . $fullname . '</p>         
-         <a href="student-course.php?id='.$course_id.'"
-         style="text-decoration: none; color: #dabafc; padding-left: 3px;">View</a> 
-         </div>
-  
-        </div>
- 
-        </div>';
-    }
-    echo '</ul>';
-    echo '</div>';
-
-    
-} else {
-// No enrolled courses found
-echo '<h1 style="padding:50px;">You are not enrolled in any courses.</h1>';
-}
-
-// Close the database connection
-mysqli_close($conn);
-?>
+            <div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 30px; ">
 
 
+                <input type="submit" name="save" id="addCourse" value="Save" style="width: 250px; height: 50px; border: none; border-radius: 20px; background-color: #491774; color:
+                white; font-weight: 700; font-size: 30px;">
 
-    <footer style="height: 20vh; display: flex; justify-content: center; align-items: end; margin: 20px;">
-        Copyright 2024. All rights reserved.
-    </footer>
 
-    <script>
-    $(document).ready(function() {
-        $('#card').click(function() {
-            $(this).css('background-color', '#007bff');
-        });
-    });
-    </script>
+            </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+
+    </form>
 
 
 </body>

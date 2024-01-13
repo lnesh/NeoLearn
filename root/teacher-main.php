@@ -129,7 +129,7 @@ if (!isset($_SESSION['mail'])) {
 
 
                             <ul class="dropdown-menu" style="background-color:black;">
-                                <li><a class="dropdown-item" href="#">View profile</a></li>
+                                <li><a class="dropdown-item" href="teacher-profile.php">View profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
