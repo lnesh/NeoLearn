@@ -214,6 +214,7 @@ if (!isset($_SESSION['mail'])) {
 
             <div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 30px; ">
 
+
             <h1>Create a New Quiz</h1>
     <form action="./backend/save.php" method="post" id="quizForm">
         <div id="questionContainer">

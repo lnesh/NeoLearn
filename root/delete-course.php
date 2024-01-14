@@ -11,7 +11,7 @@ include_once './backend/connect.php';
 
     if (mysqli_query($conn, $query)) {
         // Course deleted successfully
-        echo "Course deleted successfully.";
+        header("location: teacher-main.php");
     } else {
         // Error deleting course
         echo "An error occurred while deleting the course: " . mysqli_error($conn);
