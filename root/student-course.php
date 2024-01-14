@@ -7,6 +7,44 @@ if (!isset($_SESSION['mail'])) {
 ?>
 
 <?php
+include './backend/connect.php'; // Database connection file
+
+$quizData = [];
+$displayResults = false;
+$score = 0;
+$totalQuestions = 0;
+
+// Fetch quiz questions and options from database
+$query = "SELECT q.id as question_id, q.question, o.id as option_id, o.option_text, o.is_correct 
+          FROM quiz_questions q 
+          JOIN quiz_options o ON q.id = o.question_id";
+$result = $conn->query($query);
+
+while ($row = $result->fetch_assoc()) {
+    $quizData[$row['question_id']]['question'] = $row['question'];
+    $quizData[$row['question_id']]['options'][$row['option_id']] = $row['option_text'];
+    if ($row['is_correct']) {
+        $quizData[$row['question_id']]['correct'] = $row['option_id'];
+    }
+}
+
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $userAnswers = $_POST['answers'];
+    $totalQuestions = count($quizData);
+
+    foreach ($userAnswers as $questionId => $answerId) {
+        if (isset($quizData[$questionId]['correct']) && $quizData[$questionId]['correct'] == $answerId) {
+            $score++;
+        }
+    }
+
+    $displayResults = true;
+}
+
+?>
+
+<?php
 
 include_once './backend/connect.php';
 
@@ -288,6 +326,25 @@ mysqli_close($conn);
     </div>
 
     </div>
+
+    <h1>Take the Quiz</h1>
+    <form method="post">
+        <?php foreach ($quizData as $questionId => $info): ?>
+            <p><?php echo $info['question']; ?></p>
+            <?php foreach ($info['options'] as $optionId => $optionText): ?>
+                <input type="radio" name="answers[<?php echo $questionId; ?>]" value="<?php echo $optionId; ?>" required>
+                <?php echo $optionText; ?><br>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+        <input type="submit" value="Submit Quiz">
+    </form>
+
+    <?php if ($displayResults): ?>
+        <script type="text/javascript">
+            alert('Your score: <?php echo $score; ?> out of <?php echo $totalQuestions; ?>');
+        </script>
+    <?php endif; ?>
+
     <div class="container " style="margin:50px; display:flex; flex-direction:column;">
         <h2 class="label" style="padding: left 40px; font-size:25px; color:">Lecture</h2>
         <!-- <iframe src="https://www.youtube.com/embed/FQdaUv95mR8" frameborder="0" allowfullscreen class="video"></iframe> -->
