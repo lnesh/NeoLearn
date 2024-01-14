@@ -31,6 +31,21 @@ if (!isset($_SESSION['mail'])) {
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
 
+    <script type="text/javascript">
+        function addQuestion() {
+            var questionContainer = document.getElementById("questionContainer");
+            var questionNumber = questionContainer.children.length + 1;
+            var html = '<div id="question' + questionNumber + '">' +
+                '<label for="question' + questionNumber + '">Question ' + questionNumber + ':</label>' +
+                '<input type="text" name="questions[]" required><br>' +
+                '<input type="text" name="options[' + (questionNumber - 1) + '][]" required> <input type="radio" name="answers[' + (questionNumber - 1) + ']" value="1" required><br>' +
+                '<input type="text" name="options[' + (questionNumber - 1) + '][]" required> <input type="radio" name="answers[' + (questionNumber - 1) + ']" value="2"><br>' +
+                '<input type="text" name="options[' + (questionNumber - 1) + '][]" required> <input type="radio" name="answers[' + (questionNumber - 1) + ']" value="3"><br>' +
+                '<input type="text" name="options[' + (questionNumber - 1) + '][]" required> <input type="radio" name="answers[' + (questionNumber - 1) + ']" value="4"><br><br>' +
+                '</div>';
+            questionContainer.innerHTML += html;
+        }
+    </script>
 
     <style>
     label {
@@ -198,6 +213,17 @@ if (!isset($_SESSION['mail'])) {
 
 
             <div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 30px; ">
+
+
+            <h1>Create a New Quiz</h1>
+    <form action="./backend/save.php" method="post" id="quizForm">
+        <div id="questionContainer">
+            <!-- Questions will be added here dynamically -->
+        </div>
+        <br><br>
+        <button type="button" onclick="addQuestion()">Add Question</button><br><br>
+        <input type="submit" value="Create Quiz">
+    </form>
 
 
                 <input type="submit" name="add_course" id="addCourse" value="Save" style="width: 250px; height: 50px; border: none; border-radius: 20px; background-color: #491774; color:

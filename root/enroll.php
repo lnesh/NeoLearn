@@ -51,8 +51,7 @@ if (mysqli_num_rows($result) > 0) {
 
     if ($result) {
         // Display a success message
-        echo "The student has been enrolled successfully.";
-        
+        header("location: student-main.php");
     } else {
         // Display an error message
         echo "Failed to enroll the student.";

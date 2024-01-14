@@ -40,7 +40,7 @@ if (!isset($_SESSION['mail'])) {
     
     
     
-    echo 'Succesfully added course.';
+    header("location: teacher-main.php");
 
     
  }

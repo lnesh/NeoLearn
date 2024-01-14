@@ -32,7 +32,6 @@ if (isset($_POST['save'])) {
         // Update the database with the new values
         $query = "UPDATE courses SET title='$course_title', description='$description', youtube_link='$course_link', teacher_id='$teacher_id' WHERE course_id = $course_id";
         if (mysqli_query($conn, $query)) {
-            echo "Course details updated successfully.";
             header("location: ../teacher-main.php");
         } else {
             echo "Error updating course details: " . mysqli_error($conn);
