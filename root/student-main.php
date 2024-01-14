@@ -116,7 +116,7 @@ include_once './backend/connect.php';
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="gap: 20px;">
                         <li class="nav-item">
 
-                            <a href="#" class="nav-link menu-text">
+                            <a href="student-main.php" class="nav-link menu-text">
                                 <svg fill="#EDF" width="30px" height="30px" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
