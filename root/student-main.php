@@ -7,7 +7,6 @@ if (!isset($_SESSION['mail'])) {
 ?>
 
 <?php
-// Include the connect.php file to establish the database connection
 include_once './backend/connect.php';
 
 ?>
@@ -186,7 +185,6 @@ include_once './backend/connect.php';
     </nav>
 
     <?php
-// Get the user ID from the current session
 $mail = $_SESSION['mail'];
 
 
@@ -201,16 +199,14 @@ $student_id = $row['student_id'];
 echo "No student found with that email address";
 }
 
-// Prepare SQL query to retrieve the enrolled courses for the user
+// SQL query to retrieve the enrolled courses for the user
 $query = "SELECT c.course_id, c.title, c.description, c.teacher_id FROM courses c JOIN enrollments e ON c.course_id = e.course_id
 WHERE e.student_id = $student_id";
 
-// Execute the query
 $result1 = mysqli_query($conn, $query);
 
-// Check if the user has enrolled in any courses
+// checking if the user has enrolled in any courses
 if (mysqli_num_rows($result1) > 0) {
-// Display the list of enrolled courses
 
 echo '<div class="container-fluid">';
 echo '<h1 style="padding:20px;">Enrolled Courses</h1>';
@@ -258,11 +254,9 @@ echo '<ul style="display:flex; gap:20px">';
 
     
 } else {
-// No enrolled courses found
 echo '<h1 style="padding:50px;">You are not enrolled in any courses.</h1>';
 }
 
-// Close the database connection
 mysqli_close($conn);
 ?>
 

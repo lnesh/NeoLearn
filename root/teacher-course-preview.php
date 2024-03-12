@@ -9,18 +9,15 @@ if (!isset($_SESSION['mail'])) {
 <?php
     include 'backend/connect.php';
 
-// Get the course ID from the URL
 $course_Id = $_GET['id'];
 
 
 
-// Include the connect.php file to establish the database connection
 include_once './backend/connect.php';
 
-// Prepare SQL query to retrieve course details
+// retrieve course details
 $query = "SELECT c.course_id, c.title, c.description, c.youtube_link, c.teacher_id FROM courses c WHERE c.course_id = $course_Id";
 
-// Execute the query
 $result = mysqli_query($conn, $query);
 
 // Check if the course exists
@@ -50,8 +47,6 @@ exit;
     }
 
 
-
-// Close the database connection
 mysqli_close($conn);
 
 ?>

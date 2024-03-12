@@ -49,9 +49,7 @@
   border-radius: 12px;
   padding: 10px;
   width: 220px;
-  /* Width */
   height: 74px;
-  /* Height */
   text-align: center;
   background: #e08231;
   color: #000000;
@@ -121,7 +119,6 @@
   flex-direction: column;
   justify-content: start;
   margin-right: 20px;
-  /* Add some space between instructor info and the button */
 }
 
 .instructor-info p,
@@ -153,7 +150,6 @@
 
 .enroll-button {
   margin: 0 20px;
-  /* Add margin to both sides of the button */
 }
 
 .save-course-text {
@@ -162,9 +158,6 @@
   font-size: 18px;
   text-align: right;
   margin-left: 20px;
-  /* Add margin to the left side of the save course text */
   margin-right: 0;
-  /* Remove margin from the right side */
   white-space: nowrap;
-  /* Prevent wrapping of the save course text */
 }

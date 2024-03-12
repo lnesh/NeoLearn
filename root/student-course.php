@@ -7,7 +7,7 @@ if (!isset($_SESSION['mail'])) {
 ?>
 
 <?php
-include './backend/connect.php'; // Database connection file
+include './backend/connect.php'; 
 
 $quizData = [];
 $displayResults = false;
@@ -69,10 +69,10 @@ $videoURL = $row['youtube_link'];
 
 
 function generateYouTubeFrame($videoURL) {
-  // Extract the video ID from the URL
+  
   $videoID = preg_match('/watch\?v=(.*)/', $videoURL, $matches);
 
-  // Generate the iframe code
+
   $iframeCode = '<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/' . $videoID . '" frameborder="0" allowfullscreen></iframe>';
 
   return $iframeCode;
@@ -99,7 +99,7 @@ exit;
     echo "No teacher found with that name";
     }
 
-// Close the database connection
+
 mysqli_close($conn);
 ?>
 
@@ -330,19 +330,19 @@ mysqli_close($conn);
     <h1>Take the Quiz</h1>
     <form method="post">
         <?php foreach ($quizData as $questionId => $info): ?>
-            <p><?php echo $info['question']; ?></p>
-            <?php foreach ($info['options'] as $optionId => $optionText): ?>
-                <input type="radio" name="answers[<?php echo $questionId; ?>]" value="<?php echo $optionId; ?>" required>
-                <?php echo $optionText; ?><br>
-            <?php endforeach; ?>
+        <p><?php echo $info['question']; ?></p>
+        <?php foreach ($info['options'] as $optionId => $optionText): ?>
+        <input type="radio" name="answers[<?php echo $questionId; ?>]" value="<?php echo $optionId; ?>" required>
+        <?php echo $optionText; ?><br>
+        <?php endforeach; ?>
         <?php endforeach; ?>
         <input type="submit" value="Submit Quiz">
     </form>
 
     <?php if ($displayResults): ?>
-        <script type="text/javascript">
-            alert('Your score: <?php echo $score; ?> out of <?php echo $totalQuestions; ?>');
-        </script>
+    <script type="text/javascript">
+    alert('Your score: <?php echo $score; ?> out of <?php echo $totalQuestions; ?>');
+    </script>
     <?php endif; ?>
 
     <div class="container " style="margin:50px; display:flex; flex-direction:column;">
